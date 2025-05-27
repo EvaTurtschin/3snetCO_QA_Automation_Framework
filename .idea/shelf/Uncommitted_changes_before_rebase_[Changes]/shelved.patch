@@ -1,0 +1,275 @@
+Index: src/main/java/pages/AffiliateProgramsPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.FindBy;\r\n\r\npublic class AffiliateProgramsPage extends BasePage{\r\n\r\n    public AffiliateProgramsPage(WebDriver driver) {\r\n        super(driver);\r\n    }\r\n\r\n    @FindBy(xpath = \"//h1[@class='section-title level-1']\")\r\n    WebElement affiliatePageTitleContain;\r\n\r\n    public boolean verifyAffiliateProgramsPageOpen() {\r\n        String headerText = affiliatePageTitleContain.getText();\r\n        return headerText.contains(\"CPA партнерские программы:\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pages/AffiliateProgramsPage.java b/src/main/java/pages/AffiliateProgramsPage.java
+--- a/src/main/java/pages/AffiliateProgramsPage.java	(revision 79266e447b4979f1f3bca3e650bbc839b97f9c62)
++++ b/src/main/java/pages/AffiliateProgramsPage.java	(date 1748366019794)
+@@ -14,7 +14,10 @@
+     WebElement affiliatePageTitleContain;
+ 
+     public boolean verifyAffiliateProgramsPageOpen() {
+-        String headerText = affiliatePageTitleContain.getText();
+-        return headerText.contains("CPA партнерские программы:");
++        String headerText = affiliatePageTitleContain.getText().toUpperCase().trim();
++        System.out.println("HEADER TEXT: [" + headerText + "]");
++
++        return headerText.contains("CPA ПАРТНЕРСКИЕ ПРОГРАММЫ:") &&
++                headerText.contains("ТОП ОФФЕРЫ ДЛЯ ВЕБМАСТЕРОВ И РЕКЛАМОДАТЕЛЕЙ");
+     }
+ }
+Index: src/main/java/utils/DataProviders.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/utils/DataProviders.java b/src/main/java/utils/DataProviders.java
+new file mode 100644
+--- /dev/null	(date 1740483955343)
++++ b/src/main/java/utils/DataProviders.java	(date 1740483955343)
+@@ -0,0 +1,90 @@
++package utils;
++
++import com.opencsv.CSVReader;
++import com.opencsv.exceptions.CsvException;
++import org.testng.annotations.DataProvider;
++
++import java.io.FileReader;
++import java.io.IOException;
++import java.util.ArrayList;
++import java.util.Iterator;
++import java.util.List;
++
++public class DataProviders {
++
++    @DataProvider(name = "invalidEmail")
++    public Iterator<Object[]> invalidEmail() throws IOException {
++        List<Object[]> userData = new ArrayList<>();
++        try (CSVReader reader = new CSVReader(new FileReader("src/test/resources/emailinvalid.csv"))) {
++            List<String[]> allRows = reader.readAll();
++            for (String[] row : allRows) {
++                if (row.length == 3) { // ensure that each row has exactly 3 elements
++                    userData.add(new Object[]{row[0], row[1], row[2]});
++                } else {
++                    System.err.println("Invalid row format: " + String.join(",", row));
++                }
++            }
++        } catch (IOException | CsvException e) {
++            e.printStackTrace();
++            throw new IOException("Error reading CSV file", e);
++        }
++        return userData.iterator();
++    }
++
++    @DataProvider(name = "invalidPassword")
++    public Iterator<Object[]> invalidPassword() throws IOException {
++        List<Object[]> userData = new ArrayList<>();
++        try (CSVReader reader = new CSVReader(new FileReader("src/test/resources/passwordinvalid.csv"))) {
++            List<String[]> allRows = reader.readAll();
++            for (String[] row : allRows) {
++                if (row.length == 3) { // ensure that each row has exactly 3 elements
++                    userData.add(new Object[]{row[0], row[1], row[2]});
++                } else {
++                    System.err.println("Invalid row format: " + String.join(",", row));
++                }
++            }
++        } catch (IOException | CsvException e) {
++            e.printStackTrace();
++            throw new IOException("Error reading CSV file", e);
++        }
++        return userData.iterator();
++    }
++
++    @DataProvider(name = "invalidUsername")
++    public Iterator<Object[]> invalidUsername() throws IOException {
++        List<Object[]> userData = new ArrayList<>();
++        try (CSVReader reader = new CSVReader(new FileReader("src/test/resources/usernameinvalid.csv"))) {
++            List<String[]> allRows = reader.readAll();
++            for (String[] row : allRows) {
++                if (row.length == 3) { // ensure that each row has exactly 3 elements
++                    userData.add(new Object[]{row[0], row[1], row[2]});
++                } else {
++                    System.err.println("Invalid row format: " + String.join(",", row));
++                }
++            }
++        } catch (IOException | CsvException e) {
++            e.printStackTrace();
++            throw new IOException("Error reading CSV file", e);
++        }
++        return userData.iterator();
++    }
++
++    @DataProvider(name = "positiveRegistration")
++    public Iterator<Object[]> positiveRegistration() throws IOException {
++        List<Object[]> userData = new ArrayList<>();
++        try (CSVReader reader = new CSVReader(new FileReader("src/test/resources/userregistration.csv"))) {
++            List<String[]> allRows = reader.readAll();
++            for (String[] row : allRows) {
++                if (row.length == 3) { // ensure that each row has exactly 3 elements
++                    userData.add(new Object[]{row[0], row[1], row[2]});
++                } else {
++                    System.err.println("Invalid row format: " + String.join(",", row));
++                }
++            }
++        } catch (IOException | CsvException e) {
++            e.printStackTrace();
++            throw new IOException("Error reading CSV file", e);
++        }
++        return userData.iterator();
++    }
++}
+Index: src/main/java/testData/PositiveTestUserData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/testData/PositiveTestUserData.java b/src/main/java/testData/PositiveTestUserData.java
+new file mode 100644
+--- /dev/null	(date 1748257236483)
++++ b/src/main/java/testData/PositiveTestUserData.java	(date 1748257236483)
+@@ -0,0 +1,8 @@
++package testData;
++
++public class PositiveTestUserData {
++    public static final String USERNAME = "QA3snetCO";
++    public static final String EMAIL = "QA3snetCO@gmail.com";
++    public static final String PASSWORD = "Aaa12345";
++
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2491fc62-2c19-4944-8d92-378dc82a6ae0\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/jpa-buddy.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/configuration/ApplicationManager.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/configuration/WDListener.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/AdvertisersPage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/AffiliateProgramsPage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/BasePage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/BlogPage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/ContactsPage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/HomePage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/pages/VacancyPage.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/tests/BaseTest.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/tests/HomePageTest.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2xd6LaZWZtvWEzQ38yYuCsnhFij\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"last_opened_file_path\": \"C:/AIT TR/Idea Projects/untitled/src/test/java\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\AIT TR\\Idea Projects\\untitled\\src\\test\\java\" />\r\n      <recent name=\"C:\\AIT TR\\Idea Projects\\untitled\\src\\main\\java\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2491fc62-2c19-4944-8d92-378dc82a6ae0\" name=\"Changes\" comment=\"\" />\r\n      <created>1748255552697</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1748255552697</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 79266e447b4979f1f3bca3e650bbc839b97f9c62)
++++ b/.idea/workspace.xml	(date 1748365718548)
+@@ -4,25 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2491fc62-2c19-4944-8d92-378dc82a6ae0" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/configuration/ApplicationManager.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/configuration/WDListener.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AdvertisersPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AffiliateProgramsPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/BlogPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/ContactsPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/VacancyPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/HomePageTest.java" afterDir="false" />
++    <list default="true" id="2491fc62-2c19-4944-8d92-378dc82a6ae0" name="Changes" comment="First commit to public use">
++      <change afterPath="$PROJECT_DIR$/src/main/java/testData/PositiveTestUserData.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/utils/DataProviders.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/pages/AffiliateProgramsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/AffiliateProgramsPage.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,6 +16,11 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -41,19 +32,48 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "last_opened_file_path": "C:/AIT TR/Idea Projects/untitled/src/test/java"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/AIT TR/Idea Projects/untitled/src/test/java&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\AIT TR\Idea Projects\untitled\src\test\java" />
+       <recent name="C:\AIT TR\Idea Projects\untitled\src\main\java" />
+     </key>
++    <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="utils" />
++      <recent name="testData" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="HomePageTest.affiliateProgramsPageOpenWithAffiliateProgramsClick" type="TestNG" temporary="true" nameIsGenerated="true">
++      <module name="3snetCO_educational" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="tests.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="tests" />
++      <option name="MAIN_CLASS_NAME" value="tests.HomePageTest" />
++      <option name="METHOD_NAME" value="affiliateProgramsPageOpenWithAffiliateProgramsClick" />
++      <option name="TEST_OBJECT" value="METHOD" />
++      <properties />
++      <listeners />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="TestNG.HomePageTest.affiliateProgramsPageOpenWithAffiliateProgramsClick" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -64,6 +84,14 @@
+       <option name="presentableId" value="Default" />
+       <updated>1748255552697</updated>
+     </task>
++    <task id="LOCAL-00001" summary="First commit to public use">
++      <created>1748256191358</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1748256191358</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -77,4 +105,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="First commit to public use" />
++    <option name="LAST_COMMIT_MESSAGE" value="First commit to public use" />
++  </component>
+ </project>
+\ No newline at end of file
