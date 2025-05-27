@@ -17,7 +17,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected ApplicationManager app =
             new ApplicationManager(System
-                    .getProperty("browser", "edge"));
+                    .getProperty("browser", "chrome"));
 
     protected Logger logger = LoggerFactory.getLogger(BaseTest.class);
 
