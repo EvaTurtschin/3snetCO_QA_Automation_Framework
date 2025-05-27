@@ -14,7 +14,10 @@ public class AffiliateProgramsPage extends BasePage{
     WebElement affiliatePageTitleContain;
 
     public boolean verifyAffiliateProgramsPageOpen() {
-        String headerText = affiliatePageTitleContain.getText();
-        return headerText.contains("CPA партнерские программы:");
+        String headerText = affiliatePageTitleContain.getText().toUpperCase().trim();
+        System.out.println("HEADER TEXT: [" + headerText + "]");
+
+        return headerText.contains("CPA ПАРТНЕРСКИЕ ПРОГРАММЫ:") &&
+                headerText.contains("ТОП ОФФЕРЫ ДЛЯ ВЕБМАСТЕРОВ И РЕКЛАМОДАТЕЛЕЙ");
     }
 }
