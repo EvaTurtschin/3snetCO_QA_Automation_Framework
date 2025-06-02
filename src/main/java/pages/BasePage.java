@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 
 public class BasePage {
+
     WebDriver driver;
+    private WebDriverWait wait5;
     protected WebDriverWait wait;
     static Logger logger = LoggerFactory.getLogger(BasePage.class);
 
@@ -72,5 +74,13 @@ public class BasePage {
         click(element);
         element.clear();
         element.sendKeys(text);
+    }
+
+    protected WebDriverWait getWait5() {
+        if (wait5 == null) {
+            wait5 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        }
+
+        return wait5;
     }
 }
