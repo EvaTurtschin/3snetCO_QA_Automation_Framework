@@ -37,8 +37,6 @@ public class ApplicationManager {
         driver = new EventFiringDecorator(new WDListener()).decorate(driver);
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.navigate().to("https://3snet.co/");
 
         return driver;
