@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import pages.AdvertisersPage;
 import pages.AffiliateProgramsPage;
 import pages.HomePage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HomePageTest extends BaseTest {
 
@@ -43,50 +45,15 @@ public class HomePageTest extends BaseTest {
         Assert.assertTrue(new HomePage(driver).verifyHomePageOpenWithWhoWeAreClick());
     }
 
+        private static final Logger logger = LoggerFactory.getLogger(HomePageTest.class);
+
+        public static void main(String[] args) {
+            logger.info("Hello, Logback!");
+            logger.debug("Debug message");
+            logger.warn("Warning message");
+        }
 
 
 
 
-//
-//    @Test
-//    public void positiveMyPotsPageAccessabilityFromHeader() {
-//            new AnmeldenPage(driver).loginUser(PositiveTestUserData.EMAIL, PositiveTestUserData.PASSWORD);
-//            new HomePage(driver).clickMeineToepfeLinkInHeader();
-//            Assert.assertTrue(new MyPotsPage(driver).verifyMyPotsPageOpen());
-//            new UserCabinetPage(driver).logoutUser();
-//    }
-//
-//    @Test
-//    public void anmeldenPageAccessabilityFromBody() {
-//        new HomePage(driver).clickAnmeldenBtnInBody();
-//                Assert.assertTrue(new AnmeldenPage(driver).verifyAnmeldenPageOpen());
-//    }
-//
-//    @Test
-//    public void gesetzPageAccessabilityFromFAQ() {
-//        new HomePage(driver).clickGesetzPagelinkInFAQ();
-//        Assert.assertTrue(new GesetzPage(driver)
-//                .verifyGesetzPageOpen());
-//    }
-//
-//    @Test
-//    public void negativeAnleitungPageAccessabilityFromHeader() {
-//        new HomePage(driver).clickAnleitungLinkInHeader();
-//        Assert.assertTrue(new AnleitungPage(driver)
-//                .verifyAnleitungPageAccessError());
-//    }
-//
-//    @Test
-//    public void negativeMyPotsPageAccessabilityFromHeader() {
-//        new HomePage(driver).clickMeineToepfeLinkInHeader();
-//        Assert.assertTrue(new MyPotsPage(driver)
-//                .verifyMyPotsPageAccessError());
-//    }
-//
-//    @Test
-//    public void gesetzPageAccessabilityFromFooter() {
-//        new HomePage(driver).clickGesetzPagelinkInFooter();
-//        Assert.assertTrue(new GesetzPage(driver)
-//                .verifyGesetzPageOpen());
-//    }
 }

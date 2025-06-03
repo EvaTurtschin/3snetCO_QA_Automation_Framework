@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Консольный аппендер -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- Корневой логгер -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- Пример логгера для пакета -->
+    <logger name="org.example" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+</configuration>

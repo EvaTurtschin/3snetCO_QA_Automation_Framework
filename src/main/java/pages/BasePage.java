@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.time.Duration;
 
 public class BasePage {
 
@@ -47,20 +47,26 @@ public class BasePage {
         }
     }
 
-    public void waitTill (WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        PageFactory.initElements(driver, this);
+    public void waitUntilVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitUntilClickable(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public String getTextBase(WebElement element) {
         return element.getText().trim();
     }
 
-    public boolean isElementDisplayed(WebElement element) {
-        return element.isDisplayed();
+    public boolean isElementVisible(WebElement element) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
-
     public void navigateToHomePage() {
         if (driver != null) {
             driver.get("https://3snet.co/");
