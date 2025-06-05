@@ -60,38 +60,4 @@ public class HomePage extends BasePage{
         logger.info("Clicked on Affiliate Programs Link in Header");
     }
 
-
-
-//    public void clickAnmeldenBtnInHeader() {
-//        click(anmeldenBtns.get(0));
-//    }
-//
-//    public void clickAnmeldenBtnInBody() {
-//        clickWithJSScroll(anmeldenBtns.get(1));
-//    }
-//
-//    public void clickGesetzPagelinkInFAQ() {
-//        clickWithJSScroll(gesetzPageLinkFQA);
-//    }
-//
-//    public void clickGesetzPagelinkInFooter() {
-//        clickWithJSScroll(gesetzPageLinkFooter);
-//    }
-//
-//    public boolean verifyLoginSuccess() {
-//        clickWithJSScroll(homePageLinkInHeader);
-//        return isElementDisplayed(userCabinetIcon);
-//    }
-//
-//    public void clickUserCabinetPageLink() {
-//        click(userCabinetIcon);
-//    }
-//
-//    public boolean verifyUserUnauthorized() {
-//        return isElementDisplayed(anmeldenBtns.get(0));
-//    }
-//
-//    public void clickBackToHomePageAfterError() {
-//        click(clickBackToHomePage.get(0));
-//    }
 }
