@@ -57,8 +57,9 @@ Each contributor works in a dedicated branch and covers specific parts of the sy
 ## 👥 Contributors
 
 - **Evgeniya Turchina** – Project owner, framework architecture and core development  
-- **[Имя Фамилия 1]** – UI test scenarios, branch: `feature/login-page`  
-- **[Имя Фамилия 2]** – UI test scenarios, branch: `feature/cart-page`  
+- **Eldar Abdulhakov** – UI test scenarios, branch: `ea/partner`  
+- **Irina Bessner** – UI test scenarios, branch: 
+- **Anton Sladkomedov** – UI test scenarios, branch: `waiters_fix` 
 
 ---
 
