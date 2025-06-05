@@ -40,6 +40,7 @@ This is a real, evolving project reflecting both our skills and collaborative wo
 
 ```bash
 git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
+```
 
 2. Open the project in IntelliJ IDEA (or any compatible Java IDE).
 
@@ -52,9 +53,7 @@ git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
 ## 👥 Collaboration Workflow
 Each contributor works in a dedicated branch and covers specific parts of the system under test. The test coverage is based on regression checklists prepared manually in advance. Code review and guidance are part of the process to ensure quality and consistency across the project.
 
----
-
-## 👥 Contributors
+### Contributors
 
 - **Evgeniya Turchina** – Project owner, framework architecture and core development  
 - **Eldar Abdulhakov** – UI test scenarios, branch: `ea/partner`  
