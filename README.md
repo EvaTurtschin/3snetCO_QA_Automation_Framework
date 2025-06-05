@@ -1,0 +1,72 @@
+# 3snetCO_QA_Automation_Framework
+
+A Java-based UI test automation framework built from scratch. Developed as part of practical QA engineering work and team collaboration.
+
+## 🧩 Project Overview
+
+This project is a practical automation framework built from scratch in Java. It serves as a solid foundation for UI test automation, designed and developed as part of our freelance testing practice.
+
+The framework’s core structure and base functionality were created by me, while other team members — also practicing automation — collaborate with me on their own branches and pages, implementing tests based on regression checklists.
+
+This is a real, evolving project reflecting both our skills and collaborative work in an experimental professional environment.
+
+---
+
+## 🛠️ Technologies & Tools
+
+- **Language:** Java  
+- **Build Tool:** Maven  
+- **Test Framework:** JUnit  
+- **UI Automation:** Selenium WebDriver  
+- **API Testing:** Postman (planned addition of RestAssured)  
+- **Logging & Reporting:** (to be implemented)
+
+---
+
+## 🔍 Key Features
+
+- Modular, scalable test framework structure  
+- Page Object Model for maintainability and clarity  
+- UI test examples based on real project pages  
+- Clear separation of test data, logic, and assertions  
+- Multi-branch collaboration setup  
+- Regression test scenarios based on predefined checklists
+  
+---
+
+## 📦 How to Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
+
+2. Open the project in IntelliJ IDEA (or any compatible Java IDE).
+
+3. Ensure JDK (17+) and Maven are installed.
+
+4. Run tests from the src/test/java directory.
+
+---
+
+## 👥 Collaboration Workflow
+Each contributor works in a dedicated branch and covers specific parts of the system under test. The test coverage is based on regression checklists prepared manually in advance. Code review and guidance are part of the process to ensure quality and consistency across the project.
+
+---
+
+## 👥 Contributors
+
+- **Evgeniya Turchina** – Project owner, framework architecture and core development  
+- **[Имя Фамилия 1]** – UI test scenarios, branch: `feature/login-page`  
+- **[Имя Фамилия 2]** – UI test scenarios, branch: `feature/cart-page`  
+
+---
+
+## 🔄 Future Plans
+
+- Add API test coverage using RestAssured  
+- Configure CI/CD process using Jenkins  
+- Continue building out page object structure and regression checklists  
+- Implement parameterized test data and lightweight reporting
+
+---
