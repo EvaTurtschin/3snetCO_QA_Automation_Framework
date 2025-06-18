@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
 
-public class BaseTest {
+public abstract class BaseTest {
 
     protected WebDriver driver;
     private WebDriverWait wait5;

@@ -24,6 +24,24 @@ public class AffiliateProgramsPage extends BasePage {
     @FindBy(xpath = "//*[contains(@class, 'affiliate_geo')]//*[@class='jq-selectbox__select-text']")
     WebElement getGeoDefaultText;
 
+    @FindBy(xpath = "//*[.='Присоединиться']")
+    WebElement joinButton;
+
+    @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Беттинг']")
+    WebElement bettingButton;
+
+    @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Гемблинг']")
+    WebElement gamblingButton;
+
+    @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Киберспорт']")
+    WebElement cybersportButton;
+
+    @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Лотереи']")
+    WebElement lotoButton;
+
+    @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Покер']")
+    WebElement pokerButton;
+
     public AffiliateProgramsPage(WebDriver driver) {
         super(driver);
     }
@@ -54,5 +72,41 @@ public class AffiliateProgramsPage extends BasePage {
 
     public String getGeoDefaultText() {
         return getGeoDefaultText.getText();
+    }
+
+    public ContactsPage clickJoin() {
+        joinButton.click();
+
+        return new ContactsPage(driver);
+    }
+
+    public BettingPage clickBettingButton() {
+        bettingButton.click();
+
+        return new BettingPage(driver);
+    }
+
+    public GamblingPage clickGamblingButton() {
+        gamblingButton.click();
+
+        return new GamblingPage(driver);
+    }
+
+    public CybersportPage clickCybersportButton() {
+        cybersportButton.click();
+
+        return new CybersportPage(driver);
+    }
+
+    public LotoPage clickLotoButton() {
+        lotoButton.click();
+
+        return new LotoPage(driver);
+    }
+
+    public PokerPage clickPokerButton() {
+        pokerButton.click();
+
+        return new PokerPage(driver);
     }
 }

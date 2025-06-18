@@ -56,4 +56,64 @@ public class AffiliateProgramsTest extends BaseTest {
 
                 Assert.assertEquals(geoDefaultText, GEO_DEFAULT_TEXT);
     }
+
+    @Test
+    public void testRedirectToContacts() {
+        String url = new HomePage(driver)
+                .clickAffiliateProgramsLink()
+                .clickJoin()
+                .getCurrentUrl();
+
+        Assert.assertEquals(url, "https://3snet.co/contacts/");
+    }
+
+    @Test
+    public void testRedirectToBetting() {
+        String url = new HomePage(driver)
+                .clickAffiliateProgramsLink()
+                .clickBettingButton()
+                .getCurrentUrl();
+
+        Assert.assertEquals(url, "https://3snet.co/betting/");
+    }
+
+    @Test
+    public void testRedirectToGambling() {
+        String url = new HomePage(driver)
+                .clickAffiliateProgramsLink()
+                .clickGamblingButton()
+                .getCurrentUrl();
+
+        Assert.assertEquals(url, "https://3snet.co/gambling/");
+    }
+
+    @Test
+    public void testRedirectToCybersport() {
+        String url = new HomePage(driver)
+                .clickAffiliateProgramsLink()
+                .clickCybersportButton()
+                .getCurrentUrl();
+
+        Assert.assertEquals(url, "https://3snet.co/traffic-cybersport/");
+    }
+
+    @Test
+    public void testRedirectToLoto() {
+        String url = new HomePage(driver)
+                .clickAffiliateProgramsLink()
+                .clickLotoButton()
+                .getCurrentUrl();
+
+        Assert.assertEquals(url, "https://3snet.co/loto/");
+    }
+
+    @Test
+    public void testRedirectToPoker() {
+        String url = new HomePage(driver)
+                .clickAffiliateProgramsLink()
+                .clickPokerButton()
+                .getCurrentUrl();
+
+        Assert.assertEquals(url, "https://3snet.co/poker/");
+    }
 }
