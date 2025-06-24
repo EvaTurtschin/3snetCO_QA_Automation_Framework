@@ -35,6 +35,7 @@ public abstract class BaseTest {
     public void tearDown() {
         logger.info("quit browser");
         app.quit();
+        wait5 = null;
     }
 
     @BeforeMethod
