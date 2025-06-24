@@ -10,37 +10,37 @@ public class AffiliateProgramsPage extends BasePage {
     private WebElement title;
 
     @FindBy(xpath = "//h1[@class='section-title level-1']")
-    WebElement affiliatePageTitleContain;
+    private WebElement affiliatePageTitleContain;
 
     @FindBy(name = "affiliate_search")
-    WebElement placeholderSearchText;
+    private WebElement placeholderSearchText;
 
     @FindBy(xpath = "//*[contains(@class, 'affiliate_category')]//*[@class='jq-selectbox__select-text']")
-    WebElement categoryDefaultText;
+    private WebElement categoryDefaultText;
 
     @FindBy(xpath = "//*[contains(@class, 'affiliate_payment_model')]//*[@class='jq-selectbox__select-text']")
-    WebElement paymentModelDefaultText;
+    private WebElement paymentModelDefaultText;
 
     @FindBy(xpath = "//*[contains(@class, 'affiliate_geo')]//*[@class='jq-selectbox__select-text']")
-    WebElement getGeoDefaultText;
+    private WebElement getGeoDefaultText;
 
     @FindBy(xpath = "//*[.='Присоединиться']")
-    WebElement joinButton;
+    private WebElement joinButton;
 
     @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Беттинг']")
-    WebElement bettingButton;
+    private WebElement bettingButton;
 
     @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Гемблинг']")
-    WebElement gamblingButton;
+    private WebElement gamblingButton;
 
     @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Киберспорт']")
-    WebElement cybersportButton;
+    private WebElement cybersportButton;
 
     @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Лотереи']")
-    WebElement lotoButton;
+    private WebElement lotoButton;
 
     @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Покер']")
-    WebElement pokerButton;
+    private WebElement pokerButton;
 
     public AffiliateProgramsPage(WebDriver driver) {
         super(driver);
