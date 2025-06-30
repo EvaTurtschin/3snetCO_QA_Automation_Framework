@@ -11,53 +11,123 @@ public class HomePage extends BasePage{
     }
 
     @FindBy(xpath = "//a[@class='navbar-brand']")
-    WebElement headerLogo;
-    @FindBy(xpath = "//a[contains(normalize-space(), 'КТО МЫ?')]")
-    WebElement whoWeAreLink;
-
-    @FindBy(xpath = "//p[contains(normalize-space(), 'Что такое 3snet?')]")
-    WebElement homePageTitleContain;
-
+    WebElement headerLogoinHeader;
+    @FindBy(xpath = "//a[@class='active who-we-are']")
+    WebElement whoWeAreLinkinHeader;
     @FindBy(xpath = "//a[text()='РЕКЛАМОДАТЕЛИ']")
-    WebElement advertisersLink;
-
+    WebElement advertisersLinkinHeader;
+    @FindBy(xpath = "//h3[contains(text(), 'Рекламодатели')]")
+    WebElement advetisersSectionTitleinHeader;
     @FindBy(xpath = "//a[contains(normalize-space(), 'ПАРТНЕРСКИЕ ПРОГРАММЫ')]")
-    WebElement affiliateProgramsLink;
-    @FindBy(xpath = "//a[contains(normalize-space(), 'БЛОГ')]")
-    WebElement blogLink;
-    @FindBy(xpath = "//a[contains(normalize-space(), 'ВАКАНСИИ')]")
-    WebElement vacancyLink;
-    @FindBy(xpath = "//a[contains(normalize-space(), 'КОНТАКТЫ')]")
-    WebElement contactsLink;
+    WebElement affiliateProgramsLinkinHeader;
+    @FindBy(xpath = "//a[contains(text(), 'БЛОГ')]")
+    WebElement blogLinkinHeader;
+    @FindBy(xpath = "//a[contains(text(),'ВАКАНСИИ')]")
+    WebElement vacancyLinkinHeader;
+    @FindBy(xpath = "//a[contains(text(), 'КОНТАКТЫ')]")
+    WebElement contactsLinkinHeader;
+    @FindBy(xpath = "//a[contains(normalize-space(), 'ВХОД')]")
+    WebElement enterLinkinHeader;
+    @FindBy(xpath = "//a[contains(normalize-space(), 'РЕГИСТРАЦИЯ')]")
+    WebElement registerLinkinHeader;
+    @FindBy(xpath = "//span[@class='arrow']")
+    WebElement laguageBtn;
+    @FindBy(xpath = "//img[@class='language-flag']")
+    WebElement laguageIconInDropdown;
 
-    public void clickHeaderLogo() {
-        click(headerLogo);
-        logger.info("Clicked on Header Logo");
+
+    public boolean verifyHomePageLogoIsClickable() {
+        return isElementClickable(headerLogoinHeader);
     }
 
-    public boolean verifyHomePageOpenWithLogoClick() {
-        String headerText = homePageTitleContain.getText();
-        return headerText.contains("Что такое 3snet?");
+    public boolean verifyWhoWeAreLinkIsClickable() {
+        return isElementClickable(whoWeAreLinkinHeader);
     }
 
-    public void clickWhoWeAre() {
-            click(whoWeAreLink);
-            logger.info("Clicked on Who we Are Link in Header");
+    public boolean verifyAdvertisersLinkIsClickable() {
+        return isElementClickable(advertisersLinkinHeader);
     }
 
-    public boolean verifyHomePageOpenWithWhoWeAreClick() {
-        String headerText = homePageTitleContain.getText();
-        return headerText.contains("Что такое 3snet?");
-    }
-    public void clickAdvertisers() {
-        click(advertisersLink);
-        logger.info("Clicked on Advertisers Link in Header");
+    public boolean verifyAffiliateProgramsLinkIsClickable() {
+        return isElementClickable(affiliateProgramsLinkinHeader);
     }
 
+    public boolean verifyBlogLinkIsClickable() {
+        return isElementClickable(blogLinkinHeader);
+    }
 
-    public void clickAffiliateProgramsLink() {
-        click(affiliateProgramsLink);
+    public boolean verifyVacancyLinkIsClickable() {
+        return isElementClickable(vacancyLinkinHeader);
+    }
+
+    public boolean verifyContactsLinkIsClickable() {
+        return isElementClickable(contactsLinkinHeader);
+    }
+
+    public String getHomePageUrl() {
+        return "https://3snet.co/";
+    }
+
+    public String getAdvetisersAnchorUrl() {
+        return "https://3snet.co/#ourAdvertisers";
+    }
+
+    public boolean verifyAdvertiserSectionIsVisible() {
+       scrollToElement(advetisersSectionTitleinHeader);
+       return isElementVisible(advetisersSectionTitleinHeader);
+    }
+
+    public void clickAffiliateProgramsLinkInHeader() {
+        click(affiliateProgramsLinkinHeader);
         logger.info("Clicked on Affiliate Programs Link in Header");
+    }
+
+    public void clickBlockLinkInHeader() {
+        click(blogLinkinHeader);
+        logger.info("Clicked on the Block link in Header");
+    }
+
+    public void clickVacancyLinkInHeader() {
+        click(vacancyLinkinHeader);
+        logger.info("Clicked on the Vacancy link in Header");
+    }
+
+    public void clickContactsLinkInHeader() {
+        click(contactsLinkinHeader);
+        logger.info("Clicked on the Contacts link in Header");
+    }
+
+    public void clickEnterLinkInHeader() {
+        click(enterLinkinHeader);
+        logger.info("Clicked on the Enter link in Header");
+    }
+
+    public void clickRegisterLinkInHeader() {
+        click(registerLinkinHeader);
+        logger.info("Clicked on the Register link in Header");
+    }
+
+    public void clickLanguageBtn() {
+        click(laguageBtn);
+        logger.info("Clicked on Language Btn to open Dropdown");
+    }
+
+    public void clickLanguageIconInDropdown() {
+        click(laguageBtn);
+        click(laguageIconInDropdown);
+        logger.info("Clicked on Language Icon in Dropdown to change the language");
+    }
+
+    public boolean verifyLanguageDropdownOpens() {
+        return isElementVisible(laguageIconInDropdown);
+    }
+
+    public String getHeaderLanguageSnapshot() {
+        return whoWeAreLinkinHeader.getText().toUpperCase().trim();
+    }
+
+    public WebElement getWhoWeAreLinkElement() {
+        return whoWeAreLinkinHeader;
     }
 
 }

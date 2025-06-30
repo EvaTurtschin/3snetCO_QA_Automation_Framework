@@ -10,20 +10,16 @@ public class BlogPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//a[@class='header__logo']")
-    WebElement headerLogo;
+    @FindBy(xpath = "//h1[text()='Блог']")
+    WebElement blogPageTitle;
 
-    @FindBy(xpath = "//h1[@class='text-center mb-4 pb-2']")
-    WebElement coefficientsPageTitle;
+    public boolean varifyBlogPageIsOpen() {
+        String headerText = blogPageTitle.getText().toUpperCase().trim();
+        System.out.println("HEADER TEXT: [" + headerText + "]");
 
-    public boolean verifyCoefficientsPageOpen() {
-        String headerText = coefficientsPageTitle.getText();
-        return headerText.contains("БОНУСЫ, ПРОМОКОДЫ И ФРИБЕТЫ ОТ ЛЕГАЛЬНЫХ БУКМЕКЕРОВ.");
-    }
+        String expectedRes = "БЛОГ";
 
-    public void clickHeaderLogo() {
-        click(headerLogo);
-        logger.info("Clicked on Header Logo");
+        return isStringsEqual(headerText, expectedRes);
     }
 
 }
