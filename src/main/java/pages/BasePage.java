@@ -1,19 +1,22 @@
 package pages;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
-public class BasePage {
-    WebDriver driver;
+
+public abstract class BasePage {
+
+    protected WebDriver driver;
+    private WebDriverWait wait5;
     protected WebDriverWait wait;
     static Logger logger = LoggerFactory.getLogger(BasePage.class);
 
@@ -104,5 +107,17 @@ public class BasePage {
         click(element);
         element.clear();
         element.sendKeys(text);
+    }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    protected WebDriverWait getWait5() {
+        if (wait5 == null) {
+            wait5 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        }
+
+        return wait5;
     }
 }
