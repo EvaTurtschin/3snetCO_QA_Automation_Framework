@@ -1,6 +1,7 @@
 package tests;
 
 import configuration.ApplicationManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -24,6 +25,9 @@ public abstract class BaseTest {
                     .getProperty("browser", "chrome"));
 
     protected Logger logger = LoggerFactory.getLogger(BaseTest.class);
+    protected JavascriptExecutor jsExecutor() {
+        return (JavascriptExecutor) driver;
+    }
 
     @BeforeSuite
     public void startBrowser() {

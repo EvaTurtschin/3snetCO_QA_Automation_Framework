@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
+
 public abstract class BasePage {
 
     protected WebDriver driver;
@@ -21,6 +22,7 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -37,6 +39,11 @@ public abstract class BasePage {
         actions.moveToElement(element);
         actions.perform();
         element.click();
+    }
+
+    public void scrollToElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
     }
 
     protected boolean isStringsEqual(String actualRes, String expectedRes) {
@@ -57,6 +64,15 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public void waitForStaleness(WebElement element) {
+        wait.until(ExpectedConditions.stalenessOf(element));
+    }
+
+    public void waitUntilTextPresent(WebElement element, String expectedText) {
+        wait.until(ExpectedConditions.textToBePresentInElement(element, expectedText));
+    }
+    public void waitUntilUrlToBe(String expectedUrl) { wait.until(ExpectedConditions.urlToBe(expectedUrl)); }
+
     public String getTextBase(WebElement element) {
         return element.getText().trim();
     }
@@ -64,6 +80,15 @@ public abstract class BasePage {
     public boolean isElementVisible(WebElement element) {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean isElementClickable(WebElement element) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
             return true;
         } catch (TimeoutException e) {
             return false;
