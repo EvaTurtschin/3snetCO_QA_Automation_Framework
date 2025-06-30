@@ -11,7 +11,7 @@ public class VacancyPage extends BasePage{
     }
 
     @FindBy(xpath = "//h1[normalize-space(text()='Вакансии')]")
-    WebElement vacancyPageTitle;
+    private  WebElement vacancyPageTitle;
 
     public boolean varifyVacancyPageIsOpen() {
         String headerText = vacancyPageTitle.getText().toUpperCase().trim();

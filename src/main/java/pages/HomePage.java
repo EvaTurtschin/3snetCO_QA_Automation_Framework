@@ -11,29 +11,29 @@ public class HomePage extends BasePage {
     }
 
     @FindBy(xpath = "//a[@class='navbar-brand']")
-    WebElement headerLogoinHeader;
+    private WebElement headerLogoinHeader;
     @FindBy(xpath = "//a[@class='active who-we-are']")
-    WebElement whoWeAreLinkinHeader;
+    private WebElement whoWeAreLinkinHeader;
     @FindBy(xpath = "//a[text()='РЕКЛАМОДАТЕЛИ']")
-    WebElement advertisersLinkinHeader;
+    private WebElement advertisersLinkinHeader;
     @FindBy(xpath = "//h3[contains(text(), 'Рекламодатели')]")
-    WebElement advetisersSectionTitleinHeader;
+    private WebElement advetisersSectionTitleinHeader;
     @FindBy(xpath = "//a[contains(normalize-space(), 'ПАРТНЕРСКИЕ ПРОГРАММЫ')]")
-    WebElement affiliateProgramsLinkinHeader;
+    private WebElement affiliateProgramsLinkinHeader;
     @FindBy(xpath = "//a[contains(text(), 'БЛОГ')]")
-    WebElement blogLinkinHeader;
+    private WebElement blogLinkinHeader;
     @FindBy(xpath = "//a[contains(text(),'ВАКАНСИИ')]")
-    WebElement vacancyLinkinHeader;
+    private WebElement vacancyLinkinHeader;
     @FindBy(xpath = "//a[contains(text(), 'КОНТАКТЫ')]")
-    WebElement contactsLinkinHeader;
+    private WebElement contactsLinkinHeader;
     @FindBy(xpath = "//a[contains(normalize-space(), 'ВХОД')]")
-    WebElement enterLinkinHeader;
+    private WebElement enterLinkinHeader;
     @FindBy(xpath = "//a[contains(normalize-space(), 'РЕГИСТРАЦИЯ')]")
-    WebElement registerLinkinHeader;
+    private WebElement registerLinkinHeader;
     @FindBy(xpath = "//span[@class='arrow']")
-    WebElement laguageBtn;
+    private WebElement laguageBtn;
     @FindBy(xpath = "//img[@class='language-flag']")
-    WebElement laguageIconInDropdown;
+    private WebElement laguageIconInDropdown;
 
 
     public boolean verifyHomePageLogoIsClickable() {
@@ -77,9 +77,8 @@ public class HomePage extends BasePage {
        return isElementVisible(advetisersSectionTitleinHeader);
     }
 
-    public void clickAffiliateProgramsLinkInHeader() {
+    public AffiliateProgramsPage clickAffiliateProgramsLinkInHeader() {
         click(affiliateProgramsLinkinHeader);
-
         logger.info("Clicked on Affiliate Programs Link in Header");
 
         return new AffiliateProgramsPage(driver);

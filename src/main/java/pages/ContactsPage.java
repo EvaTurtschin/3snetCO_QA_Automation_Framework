@@ -11,7 +11,7 @@ public class ContactsPage extends BasePage{
     }
 
     @FindBy(xpath = "//h1[text()='Отправить сообщение']")
-    WebElement contactsPageTitle;
+    private WebElement contactsPageTitle;
 
     public boolean varifyContactsPageIsOpen() {
         String headerText = contactsPageTitle.getText().toUpperCase().trim();

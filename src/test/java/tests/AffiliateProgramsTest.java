@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
@@ -12,10 +13,15 @@ public class AffiliateProgramsTest extends BaseTest {
     private static final String PAYMENT_MODEL_DEFAULT_TEXT = "Модель оплаты";
     private static final String GEO_DEFAULT_TEXT = "GEO";
 
+    @BeforeTest
+    public void testPostconditions() {
+        new HomePage(driver).navigateToHomePage();
+    }
+
     @Test
     public void testTitleText() {
         String title = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .getTitle();
 
         Assert.assertEquals(title, TITLE);
@@ -24,7 +30,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testPlaceholderSearchText() {
         String placeholderSearchText = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .getPlaceholderSearchText();
 
         Assert.assertEquals(placeholderSearchText, PLACEHOLDER_SEARCH_TEXT);
@@ -33,7 +39,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testCategoryDefaultText() {
         String categoryDefaultText = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .getCategoryDefaultText();
 
         Assert.assertEquals(categoryDefaultText, CATEGORY_DEFAULT_TEXT);
@@ -42,7 +48,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testPaymentModelDefaultText() {
         String paymentModelDefaultText = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .getPaymentModelDefaultText();
 
                 Assert.assertEquals(paymentModelDefaultText, PAYMENT_MODEL_DEFAULT_TEXT);
@@ -51,7 +57,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testGeoDefaultText() {
         String geoDefaultText = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .getGeoDefaultText();
 
                 Assert.assertEquals(geoDefaultText, GEO_DEFAULT_TEXT);
@@ -60,7 +66,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToContacts() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .clickJoin()
                 .getCurrentUrl();
 
@@ -70,7 +76,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToBetting() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .clickBettingButton()
                 .getCurrentUrl();
 
@@ -80,7 +86,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToGambling() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .clickGamblingButton()
                 .getCurrentUrl();
 
@@ -90,7 +96,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToCybersport() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .clickCybersportButton()
                 .getCurrentUrl();
 
@@ -100,7 +106,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToLoto() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .clickLotoButton()
                 .getCurrentUrl();
 
@@ -110,7 +116,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToPoker() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLink()
+                .clickAffiliateProgramsLinkInHeader()
                 .clickPokerButton()
                 .getCurrentUrl();
 

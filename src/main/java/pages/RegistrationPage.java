@@ -11,7 +11,7 @@ public class RegistrationPage extends BasePage{
     }
 
     @FindBy(xpath = "//h1[contains(text(),'Регистрация аффилейта')]")
-    WebElement registrationPageTitle;
+    private WebElement registrationPageTitle;
 
     public boolean varifyRegistrationPageIsOpen() {
         String headerText = registrationPageTitle.getText().toUpperCase().trim();
