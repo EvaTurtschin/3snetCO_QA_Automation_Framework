@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
@@ -12,7 +11,6 @@ public class AffiliateProgramsTest extends BaseTest {
     private static final String CATEGORY_DEFAULT_TEXT = "Вертикаль";
     private static final String PAYMENT_MODEL_DEFAULT_TEXT = "Модель оплаты";
     private static final String GEO_DEFAULT_TEXT = "GEO";
-
 
     @Test
     public void testTitleText() {
@@ -47,7 +45,7 @@ public class AffiliateProgramsTest extends BaseTest {
                 .clickAffiliateProgramsLinkInHeader()
                 .getPaymentModelDefaultText();
 
-                Assert.assertEquals(paymentModelDefaultText, PAYMENT_MODEL_DEFAULT_TEXT);
+        Assert.assertEquals(paymentModelDefaultText, PAYMENT_MODEL_DEFAULT_TEXT);
     }
 
     @Test
@@ -56,7 +54,7 @@ public class AffiliateProgramsTest extends BaseTest {
                 .clickAffiliateProgramsLinkInHeader()
                 .getGeoDefaultText();
 
-                Assert.assertEquals(geoDefaultText, GEO_DEFAULT_TEXT);
+        Assert.assertEquals(geoDefaultText, GEO_DEFAULT_TEXT);
     }
 
     @Test

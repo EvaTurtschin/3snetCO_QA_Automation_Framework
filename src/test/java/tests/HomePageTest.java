@@ -1,24 +1,17 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.*;
 
 public class HomePageTest extends BaseTest {
 
-//    @BeforeTest
-//    public void testPreconditions() {
-//        new HomePage(driver).navigateToHomePage();
-//    }
-
-
     @Test
     public void headerLogoIsClickableAndNavigateToHomePage() {
         HomePage homePage = new HomePage(driver);
 
-       Assert.assertTrue(homePage.verifyHomePageLogoIsClickable(),
-                    "Logo in Header should be clickable");
+        Assert.assertTrue(homePage.verifyHomePageLogoIsClickable(),
+                "Logo in Header should be clickable");
 
         homePage.clickAffiliateProgramsLinkInHeader();
         new AffiliateProgramsPage(driver).clickLogoInHeader();
@@ -45,7 +38,6 @@ public class HomePageTest extends BaseTest {
         String urlAfter = driver.getCurrentUrl();
         Assert.assertEquals(urlAfter, homePage.getHomePageUrl(),
                 "WhoWeAre link click from Other page (Affiliate Programs page) should navigate to Home page");
-
     }
 
     @Test
@@ -140,25 +132,7 @@ public class HomePageTest extends BaseTest {
                 "Clicking language icon in dropdown should change the page language.");
 
         homePage.clickLanguageIconInDropdown();
-        homePage.waitUntilTextPresent(homePage.getWhoWeAreLinkElement(),"КТО МЫ");
+        homePage.waitUntilTextPresent(homePage.getWhoWeAreLinkElement(), "КТО МЫ");
     }
-
-
-
-
-
-
-
-
-//        private static final Logger logger = LoggerFactory.getLogger(HomePageTest.class);
-//
-//        public static void main(String[] args) {
-//            logger.info("Hello, Logback!");
-//            logger.debug("Debug message");
-//            logger.warn("Warning message");
-//        }
-
-
-
 
 }

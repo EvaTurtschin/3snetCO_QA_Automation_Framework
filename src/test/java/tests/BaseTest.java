@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
 import java.time.Duration;
@@ -16,12 +17,12 @@ import java.util.Arrays;
 public abstract class BaseTest {
 
     protected WebDriver driver;
-    private WebDriverWait wait5;
     protected ApplicationManager app =
             new ApplicationManager(System
                     .getProperty("browser", "chrome"));
-
     protected Logger logger = LoggerFactory.getLogger(BaseTest.class);
+    private WebDriverWait wait5;
+
     protected JavascriptExecutor jsExecutor() {
         return (JavascriptExecutor) driver;
     }
