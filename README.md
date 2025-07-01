@@ -16,7 +16,7 @@ This is a real, evolving project reflecting both our skills and collaborative wo
 
 - **Language:** Java  
 - **Build Tool:** Maven  
-- **Test Framework:** JUnit  
+- **Test Framework:** TestNG 
 - **UI Automation:** Selenium WebDriver  
 - **API Testing:** Postman (planned addition of RestAssured)  
 - **Logging & Reporting:** (to be implemented)
@@ -46,7 +46,7 @@ git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
 
 3. Ensure JDK (17+) and Maven are installed.
 
-4. Run tests from the src/test/java directory.
+4. Run tests separately from the `src/test/java` directory or suites from Terminal with `mvn clean test`.
 
 ---
 
