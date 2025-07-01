@@ -13,10 +13,6 @@ public class AffiliateProgramsTest extends BaseTest {
     private static final String PAYMENT_MODEL_DEFAULT_TEXT = "Модель оплаты";
     private static final String GEO_DEFAULT_TEXT = "GEO";
 
-    @BeforeTest
-    public void testPostconditions() {
-        new HomePage(driver).navigateToHomePage();
-    }
 
     @Test
     public void testTitleText() {

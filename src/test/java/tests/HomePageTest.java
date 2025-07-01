@@ -7,10 +7,10 @@ import pages.*;
 
 public class HomePageTest extends BaseTest {
 
-    @BeforeTest
-    public void testPostconditions() {
-        new HomePage(driver).navigateToHomePage();
-    }
+//    @BeforeTest
+//    public void testPreconditions() {
+//        new HomePage(driver).navigateToHomePage();
+//    }
 
 
     @Test

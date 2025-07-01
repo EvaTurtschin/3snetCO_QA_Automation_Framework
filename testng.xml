@@ -2,8 +2,8 @@
 <suite name="3snet Suite" verbose="1">
     <test name="Functional Tests">
         <classes>
-            <class name="tests.HomePageTest"/>
             <class name="tests.AffiliateProgramsTest"/>
+            <class name="tests.HomePageTest"/>
         </classes>
     </test>
 </suite>

@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 import java.time.Duration;
@@ -29,33 +26,21 @@ public abstract class BaseTest {
         return (JavascriptExecutor) driver;
     }
 
-    @BeforeSuite
-    public void startBrowser() {
-        logger.info("run browser settings ");
+    @BeforeMethod(alwaysRun = true)
+    public void setUp(Method method, Object[] parameters) {
+        logger.info("Start test: " + method.getName() + " with data " + Arrays.asList(parameters));
         driver = app.init();
     }
 
-    @AfterSuite
-    public void tearDown() {
-        logger.info("quit browser");
-        app.quit();
-        wait5 = null;
-    }
-
-    @BeforeMethod
-    public void startTest(Method method, Object[] o) {
-        logger.info("Start test: " + method.getName() +
-                " with data " + Arrays.asList(o));
-    }
-
-    @AfterMethod
-    public void stopTest(ITestResult result) {
+    @AfterMethod(alwaysRun = true)
+    public void tearDown(ITestResult result) {
         if (result.isSuccess()) {
             logger.info("PASSED " + result.getMethod().getMethodName());
         } else {
             logger.error("FAILED " + result.getMethod().getMethodName());
-            //     + "Screenshot: " + app.getUserHelper().takeScreenshot());
         }
+        app.quit();
+        wait5 = null;
         logger.info("Stop test");
         logger.info("-------------------------------------------------------");
     }
