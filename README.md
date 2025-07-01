@@ -16,7 +16,7 @@ This is a real, evolving project reflecting both our skills and collaborative wo
 
 - **Language:** Java  
 - **Build Tool:** Maven  
-- **Test Framework:** JUnit  
+- **Test Framework:** TestNG 
 - **UI Automation:** Selenium WebDriver  
 - **API Testing:** Postman (planned addition of RestAssured)  
 - **Logging & Reporting:** (to be implemented)
