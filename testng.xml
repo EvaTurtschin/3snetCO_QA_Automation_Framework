@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="3snet Suite" verbose="1">
+<suite name="SequentialSuite" parallel="false">
     <test name="Functional Tests">
         <classes>
             <class name="tests.AffiliateProgramsTest"/>
