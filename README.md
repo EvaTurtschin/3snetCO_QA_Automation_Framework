@@ -46,7 +46,7 @@ git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
 
 3. Ensure JDK (17+) and Maven are installed.
 
-4. Run tests from the src/test/java directory.
+4. Run tests separately from the `src/test/java` directory or suites from Terminal with `mvn clean test`.
 
 ---
 
