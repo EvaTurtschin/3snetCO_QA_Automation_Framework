@@ -19,7 +19,8 @@ This is a real, evolving project reflecting both our skills and collaborative wo
 - **Test Framework:** TestNG 
 - **UI Automation:** Selenium WebDriver  
 - **API Testing:** Postman (planned addition of RestAssured)  
-- **Logging & Reporting:** (to be implemented)
+- **Logging:** Logging: SLF4J + Logback  
+- **Reporting:** Allure Reports 
 
 ---
 
@@ -27,7 +28,8 @@ This is a real, evolving project reflecting both our skills and collaborative wo
 
 - Modular, scalable test framework structure  
 - Page Object Model for maintainability and clarity  
-- UI test examples based on real project pages  
+- UI test examples based on real project pages
+- Rich test reporting via Allure Reports (steps, descriptions, screenshots)
 - Clear separation of test data, logic, and assertions  
 - Multi-branch collaboration setup  
 - Regression test scenarios based on predefined checklists
@@ -47,6 +49,9 @@ git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
 3. Ensure JDK (17+) and Maven are installed.
 
 4. Run tests separately from the `src/test/java` directory or suites from Terminal with `mvn clean test`.
+5. To generate and view the Allure Report `allure serve target/allure-results`
+   или `allure generate target/allure-results --clean -o target/allure-report`
+       `allure open target/allure-report`
 
 ---
 
@@ -66,7 +71,8 @@ Each contributor works in a dedicated branch and covers specific parts of the sy
 
 - Add API test coverage using RestAssured  
 - Configure CI/CD process using Jenkins  
-- Continue building out page object structure and regression checklists  
-- Implement parameterized test data and lightweight reporting
+- Continue building out page object structure and regression checklists
+- Add Allure CI integration and historical report retention 
+- Implement parameterized test data
 
 ---
