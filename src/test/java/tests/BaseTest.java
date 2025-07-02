@@ -1,7 +1,11 @@
 package tests;
 
+import io.qameta.allure.Attachment;
+
 import configuration.ApplicationManager;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -34,15 +38,29 @@ public abstract class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
+        String methodName = result.getMethod().getMethodName();
+
         if (result.isSuccess()) {
-            logger.info("PASSED " + result.getMethod().getMethodName());
+            logger.info("✅ PASSED {}", methodName);
         } else {
-            logger.error("FAILED " + result.getMethod().getMethodName());
+            logger.error("❌ FAILED {}", methodName);
+            takeScreenshot(); // Аллюр вложение
         }
+
         app.quit();
         wait5 = null;
         logger.info("Stop test");
         logger.info("-------------------------------------------------------");
+    }
+
+    @Attachment(value = "Screenshot on Failure", type = "image/png")
+    public byte[] takeScreenshot() {
+        try {
+            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        } catch (Exception e) {
+            logger.warn("Unable to take screenshot: {}", e.getMessage());
+            return new byte[0];
+        }
     }
 
     protected WebDriverWait getWait5() {

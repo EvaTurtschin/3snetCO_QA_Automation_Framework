@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,30 +37,38 @@ public class HomePage extends BasePage {
     private WebElement laguageIconInDropdown;
 
 
+
+    @Step("Verify Logo is Clickable")
     public boolean verifyHomePageLogoIsClickable() {
         return isElementClickable(headerLogoinHeader);
     }
 
+    @Step("Verify Who We Are link is clickable")
     public boolean verifyWhoWeAreLinkIsClickable() {
         return isElementClickable(whoWeAreLinkinHeader);
     }
 
+    @Step("Verify Advertisers link is clickable")
     public boolean verifyAdvertisersLinkIsClickable() {
         return isElementClickable(advertisersLinkinHeader);
     }
 
+    @Step("Verify Affiliate Programs link is clickable")
     public boolean verifyAffiliateProgramsLinkIsClickable() {
         return isElementClickable(affiliateProgramsLinkinHeader);
     }
 
+    @Step("Verify Blog link is clickable")
     public boolean verifyBlogLinkIsClickable() {
         return isElementClickable(blogLinkinHeader);
     }
 
+    @Step("Verify Vacancy link is clickable")
     public boolean verifyVacancyLinkIsClickable() {
         return isElementClickable(vacancyLinkinHeader);
     }
 
+    @Step("Verify Contacts link is clickable")
     public boolean verifyContactsLinkIsClickable() {
         return isElementClickable(contactsLinkinHeader);
     }
@@ -72,11 +81,13 @@ public class HomePage extends BasePage {
         return "https://3snet.co/#ourAdvertisers";
     }
 
+    @Step("Verify Advertiser section is visible")
     public boolean verifyAdvertiserSectionIsVisible() {
        scrollToElement(advetisersSectionTitleinHeader);
        return isElementVisible(advetisersSectionTitleinHeader);
     }
 
+    @Step("Click Affiliate Programs link in header")
     public AffiliateProgramsPage clickAffiliateProgramsLinkInHeader() {
         click(affiliateProgramsLinkinHeader);
         logger.info("Clicked on Affiliate Programs Link in Header");
@@ -84,46 +95,55 @@ public class HomePage extends BasePage {
         return new AffiliateProgramsPage(driver);
     }
 
+    @Step("Click Blog link in header")
     public void clickBlockLinkInHeader() {
         click(blogLinkinHeader);
         logger.info("Clicked on the Block link in Header");
     }
 
+    @Step("Click Vacancy link in header")
     public void clickVacancyLinkInHeader() {
         click(vacancyLinkinHeader);
         logger.info("Clicked on the Vacancy link in Header");
     }
 
+    @Step("Click Contacts link in header")
     public void clickContactsLinkInHeader() {
         click(contactsLinkinHeader);
         logger.info("Clicked on the Contacts link in Header");
     }
 
+    @Step("Click Enter link in header")
     public void clickEnterLinkInHeader() {
         click(enterLinkinHeader);
         logger.info("Clicked on the Enter link in Header");
     }
 
+    @Step("Click Register link in header")
     public void clickRegisterLinkInHeader() {
         click(registerLinkinHeader);
         logger.info("Clicked on the Register link in Header");
     }
 
+    @Step("Click Language button in header")
     public void clickLanguageBtn() {
         click(laguageBtn);
         logger.info("Clicked on Language Btn to open Dropdown");
     }
 
+    @Step("Click Language Icon in Dropdown menu")
     public void clickLanguageIconInDropdown() {
         click(laguageBtn);
         click(laguageIconInDropdown);
         logger.info("Clicked on Language Icon in Dropdown to change the language");
     }
 
+    @Step("Verify Language Dropdown menu opens")
     public boolean verifyLanguageDropdownOpens() {
         return isElementVisible(laguageIconInDropdown);
     }
 
+    @Step("Get language snapshot from Who We Are link in header")
     public String getHeaderLanguageSnapshot() {
         return whoWeAreLinkinHeader.getText().toUpperCase().trim();
     }

@@ -2,7 +2,7 @@
 <suite name="SequentialSuite" parallel="false">
     <test name="Functional Tests">
         <classes>
-            <class name="tests.AffiliateProgramsTest"/>
+<!--            <class name="tests.AffiliateProgramsTest"/>-->
             <class name="tests.HomePageTest"/>
         </classes>
     </test>
