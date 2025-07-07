@@ -51,14 +51,4 @@ public class ApplicationManager {
         return driver;
     }
 
-//TODO
-//    public WebDriver init(String[] platforms) {
-//        for (String platform : platforms) {
-//    public static void main(String[] args) {
-//        ApplicationManager example = new ApplicationManager();
-//        String[] platforms = {"edge", "chrome"};
-//        // Initialize WebDriver for each platform in the specified order
-//        example.init(platforms);
-//        // Optionally, you can return driver from init() and use it further
-//    }
 }
