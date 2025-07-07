@@ -21,10 +21,20 @@ jobs:
         run: mvn clean test
 
       - name: Generate Allure Report
+        if: always()  # will be added even if fail
         run: mvn allure:report
 
       - name: Upload Allure Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: target/site/allure-report
+           name: allure-report
+           path: target/site/allure-report
+
+      - name: Upload Surefire Reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+            name: surefire-reports
+            path: target/surefire-reports
+   
