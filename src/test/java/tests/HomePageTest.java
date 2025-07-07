@@ -1,6 +1,7 @@
 package tests;
 
 import io.qameta.allure.*;
+//import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -12,7 +13,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Clicking logo in header returns to homepage")
     @Story("Header logo navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("Verify that clicking the logo in the header navigates back to the homepage from another page")
     public void headerLogoIsClickableAndNavigateToHomePage() {
         HomePage homePage = new HomePage(driver);
@@ -32,7 +33,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Clicking 'Who we are' scrolls to expected section")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("Verify that clicking the 'Who we are' link scrolls the page to the correct section")
     public void WhoWeAreLinkIsClickableAndNavigateToHomePage() {
         HomePage homePage = new HomePage(driver);
@@ -53,7 +54,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Advertisers link goes to anchor section")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("Check that the 'Advertisers' link in the header scrolls to the anchor block")
     public void AdvertisersLinkClickNavigateToAdvertisersBlock() {
         HomePage homePage = new HomePage(driver);
@@ -75,7 +76,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Affiliate Programs link opens correct page")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Affiliate Programs page via header link")
     public void AffiliateProgramsLinkNavigateToAffiliateProgramsPage() {
         HomePage homePage = new HomePage(driver);
@@ -89,7 +90,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Blog link opens correct page")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Blog page via header link")
     public void BlogLinkNavigateToAffiliateProgramsPage() {
         HomePage homePage = new HomePage(driver);
@@ -103,7 +104,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Vacancy link opens correct page")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Vacancy page via header link")
     public void VacancyLinkNavigateToAffiliateProgramsPage() {
         HomePage homePage = new HomePage(driver);
@@ -117,7 +118,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Contacts link opens correct page")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Contacts page via header link")
     public void ContactsLinkNavigateToAffiliateProgramsPage() {
         HomePage homePage = new HomePage(driver);
@@ -131,7 +132,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Enter link opens correct page")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Authorisation page via header link")
     public void EnterLinkNavigateToAuthorisationPage() {
         new HomePage(driver).clickEnterLinkInHeader();
@@ -140,7 +141,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Register link opens correct page")
     @Story("Header navigation")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Registration page via header link")
     public void RegisterLinkNavigateToRegistrationPage() {
         new HomePage(driver).clickRegisterLinkInHeader();
@@ -149,7 +150,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Clicking language button opens Dropdown language menu")
     @Story("Language selection")
-    @Severity(SeverityLevel.MINOR)
+//    @Severity(SeverityLevel.MINOR)
     @Description("Verify that clicking the language button in the header opens the language dropdown menu")
     public void LanguageBtnOpensLanguageDropdownMenu() {
         HomePage homePage = new HomePage(driver);
@@ -159,7 +160,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Clicking language icon in Dropdown menu changes page language")
     @Story("Language selection")
-    @Severity(SeverityLevel.NORMAL)
+//    @Severity(SeverityLevel.NORMAL)
     @Description("Verify that clicking the language icon in the dropdown changes the site language")
     public void LanguageIconClickInDropdownChangesPageLanguage() {
         HomePage homePage = new HomePage(driver);

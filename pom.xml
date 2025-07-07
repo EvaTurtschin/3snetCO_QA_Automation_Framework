@@ -58,11 +58,16 @@
             <artifactId>allure-testng</artifactId>
             <version>2.29.1</version>
         </dependency>
-        <!-- Для @Step и @Attachment -->
+        <!-- For @Step and @Attachment -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>2.29.1</version>
         </dependency>
 
     </dependencies>

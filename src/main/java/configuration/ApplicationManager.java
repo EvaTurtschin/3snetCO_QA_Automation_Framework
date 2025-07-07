@@ -26,6 +26,7 @@ public class ApplicationManager {
         } else if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--lang=en");
+            chromeOptions.addArguments("--incognito"); // ← added for CI conflict in GitHub Action
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(chromeOptions);
         } else if (browser != null &&
