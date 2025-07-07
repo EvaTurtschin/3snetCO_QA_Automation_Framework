@@ -7,8 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.events.EventFiringDecorator;
-
-import java.time.Duration;
+import java.util.UUID;
 
 public class ApplicationManager {
     static WebDriver driver;
@@ -26,7 +25,7 @@ public class ApplicationManager {
         } else if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--lang=en");
-            chromeOptions.addArguments("--incognito"); // ← added for CI conflict in GitHub Action
+            chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID()); // ← added for CI conflict in GitHub Action
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(chromeOptions);
         } else if (browser != null &&
