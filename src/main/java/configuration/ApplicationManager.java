@@ -25,7 +25,9 @@ public class ApplicationManager {
         } else if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--lang=en");
-            chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID()); // ← added for CI conflict in GitHub Action
+            chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID().toString()); // ← added for CI conflict in GitHub Action
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(chromeOptions);
         } else if (browser != null &&
