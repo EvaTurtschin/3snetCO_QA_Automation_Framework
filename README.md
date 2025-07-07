@@ -1,4 +1,4 @@
-# 3snetCO_QA_Automation_Framework
+# 3snetCO UI Test Automation Framework
 
 A Java-based UI test automation framework built from scratch. Developed as part of practical QA engineering work and team collaboration.
 
