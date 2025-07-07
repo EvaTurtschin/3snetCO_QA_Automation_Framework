@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: path: target/site/allure-report
+          path: target/site/allure-report
