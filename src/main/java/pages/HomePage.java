@@ -22,7 +22,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[contains(normalize-space(), 'ПАРТНЕРСКИЕ ПРОГРАММЫ')]")
     private WebElement affiliateProgramsLinkinHeader;
     @FindBy(xpath = "//a[contains(text(), 'БЛОГ')]")
-    private WebElement blogLinkinHeader;
+    private WebElement blogLinkInHeader;
     @FindBy(xpath = "//a[contains(text(),'ВАКАНСИИ')]")
     private WebElement vacancyLinkinHeader;
     @FindBy(xpath = "//a[contains(text(), 'КОНТАКТЫ')]")
@@ -60,7 +60,7 @@ public class HomePage extends BasePage {
 
     @Step("Verify Blog link is clickable")
     public boolean verifyBlogLinkIsClickable() {
-        return isElementClickable(blogLinkinHeader);
+        return isElementClickable(blogLinkInHeader);
     }
 
     @Step("Verify Vacancy link is clickable")
@@ -96,9 +96,10 @@ public class HomePage extends BasePage {
     }
 
     @Step("Click Blog link in header")
-    public void clickBlockLinkInHeader() {
-        click(blogLinkinHeader);
-        logger.info("Clicked on the Block link in Header");
+    public void clickBlogLinkInHeader() {
+        waitUntilClickable(blogLinkInHeader);
+        click(blogLinkInHeader);
+        logger.info("Clicked on the Blog link in Header");
     }
 
     @Step("Click Vacancy link in header")

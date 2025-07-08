@@ -17,6 +17,7 @@ import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
 
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public abstract class BaseTest {
 
     protected WebDriver driver;
