@@ -20,9 +20,15 @@ jobs:
       - name: Run tests
         run: mvn clean test
 
+      - name: Install Allure CLI
+        run: |
+          sudo apt-add-repository ppa:qameta/allure -y
+          sudo apt-get update
+          sudo apt-get install allure
+
       - name: Generate Allure Report
         if: always()  # will be added even if fail
-        run: 
+        run: |
           mkdir -p target/allure-report
           allure generate target/allure-results -o target/allure-report --clean
 
