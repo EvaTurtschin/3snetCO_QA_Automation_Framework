@@ -22,12 +22,20 @@ jobs:
 
       - name: Install Allure CLI
         run: |
-          run: |
-            wget https://github.com/allure-framework/allure2/releases/download/2.23.0/allure-2.23.0.tgz
-            tar -zxvf allure-2.23.0.tgz
-            sudo mv allure-2.23.0 /opt/allure
-            sudo ln -s /opt/allure/bin/allure /usr/bin/allure
-            allure --version
+          set -e
+          echo "Downloading Allure CLI..."
+          wget -q https://github.com/allure-framework/allure2/releases/download/2.23.0/allure-2.23.0.tgz
+          echo "Extracting..."
+          tar -zxvf allure-2.23.0.tgz
+          sudo mv allure-2.23.0 /opt/allure
+          sudo ln -sf /opt/allure/bin/allure /usr/bin/allure
+          echo "Installed version:"
+          allure --version
+
+      - name: Check Allure Installed
+        run: |
+          which allure
+          allure --version
 
       - name: Generate Allure Report
         if: always()  # will be added even if fail
