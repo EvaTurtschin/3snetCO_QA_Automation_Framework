@@ -1,7 +1,6 @@
 package tests;
 
 import io.qameta.allure.*;
-//import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -10,25 +9,21 @@ import pages.*;
 @Feature("Header Navigation")
 public class HomePageTest extends BaseTest {
 
-//    @Test(description = "Clicking logo in header returns to homepage")
-//    @Story("Header logo navigation")
-////    @Severity(SeverityLevel.NORMAL)
-//    @Description("Verify that clicking the logo in the header navigates back to the homepage from another page")
-//    public void headerLogoIsClickableAndNavigateToHomePage() {
-//        HomePage homePage = new HomePage(driver);
-//
-//       Assert.assertTrue(homePage.verifyHomePageLogoIsClickable(),
-//                    "Logo in Header should be clickable");
-//
-//        homePage.clickAffiliateProgramsLinkInHeader();
-//        new AffiliateProgramsPage(driver).clickLogoInHeader();
-//
-//        homePage.waitUntilUrlToBe(homePage.getHomePageUrl());
-//
-//        String urlAfter = driver.getCurrentUrl();
-//        Assert.assertEquals(urlAfter, homePage.getHomePageUrl(),
-//                "Logo click from Other page (Affiliate Programs page) should navigate to Home page");
-//    }
+    @Test(description = "Clicking logo in header returns to homepage")
+    @Story("Header logo navigation")
+//    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that clicking the logo in the header navigates back to the homepage from another page")
+    public void headerLogoIsClickableAndNavigateToHomePage() {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickAffiliateProgramsLinkInHeader();
+        new AffiliateProgramsPage(driver).clickLogoInHeader();
+
+        homePage.waitUntilUrlToBe(homePage.getHomePageUrl());
+
+        String urlAfter = driver.getCurrentUrl();
+        Assert.assertEquals(urlAfter, homePage.getHomePageUrl(),
+                "Logo click from Other page (Affiliate Programs page) should navigate to Home page");
+    }
 
 //    @Test(description = "Clicking 'Who we are' scrolls to expected section")
 //    @Story("Header navigation")
@@ -72,19 +67,18 @@ public class HomePageTest extends BaseTest {
 //                "Advertisers Section on Home Page should be visible");
 //    }
 
-//    @Test(description = "Affiliate Programs link opens correct page")
-//    @Story("Header navigation")
-////    @Severity(SeverityLevel.NORMAL)
-//    @Description("User is redirected to Affiliate Programs page via header link")
-//    public void AffiliateProgramsLinkNavigateToAffiliateProgramsPage() {
-//        HomePage homePage = new HomePage(driver);
-//
-//        Assert.assertTrue(homePage.verifyAffiliateProgramsLinkIsClickable(),
-//                "Affiliate Programs Link in Header should be clickable");
-//
-//        homePage.clickAffiliateProgramsLinkInHeader();
-//        Assert.assertTrue(new AffiliateProgramsPage(driver).verifyAffiliateProgramsPageOpen());
-//    }
+    @Test(description = "Affiliate Programs link opens correct page")
+    @Story("Header navigation")
+//    @Severity(SeverityLevel.NORMAL)
+    @Description("User is redirected to Affiliate Programs page via header link")
+    public void AffiliateProgramsLinkNavigateToAffiliateProgramsPage() {
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.verifyAffiliateProgramsLinkIsClickable(),
+                "Affiliate Programs Link in Header is clickable");
+
+        homePage.clickAffiliateProgramsLinkInHeader();
+        Assert.assertTrue(new AffiliateProgramsPage(driver).verifyAffiliateProgramsPageOpen());
+    }
 
 //    @Test(description = "Blog link opens correct page")
 //    @Story("Header navigation")

@@ -91,7 +91,6 @@ public class HomePage extends BasePage {
     public AffiliateProgramsPage clickAffiliateProgramsLinkInHeader() {
         click(affiliateProgramsLinkinHeader);
         logger.info("Clicked on Affiliate Programs Link in Header");
-
         return new AffiliateProgramsPage(driver);
     }
 

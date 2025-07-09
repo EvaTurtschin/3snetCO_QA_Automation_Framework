@@ -25,11 +25,19 @@ public class ApplicationManager {
         } else if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--lang=en");
-//            chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + UUID.randomUUID().toString()); // ← added for CI conflict in GitHub Action
-            chromeOptions.addArguments("--headless=new");
-            chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--disable-gpu");
+
+            String isCI = System.getenv("CI"); // GitHub Actions автоматически задаёт CI=true
+
+            if ("true".equals(isCI)) {
+                chromeOptions.addArguments("--headless=new");
+                chromeOptions.addArguments("--window-size=1920,1080");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--disable-gpu");
+            } else {
+                chromeOptions.addArguments("--start-maximized"); // для наглядного запуска
+            }
+
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(chromeOptions);
         } else if (browser != null &&
