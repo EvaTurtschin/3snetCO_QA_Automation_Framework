@@ -73,7 +73,7 @@ The report includes:
 - Screenshots on failure (when applicable)
 - Links to source code and failed tests
 
-GitHub Actions uses a separate workflow file (`[/workflows/ci.yaml](https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework/blob/main/.github/workflows/ci.yml)`) with manual dispatch enabled. This allows non-technical team members (e.g. manual testers) to trigger the test suite and access the report via a permanent link — no local setup required.
+GitHub Actions uses a separate workflow file [/workflows/ci.yaml](https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework/blob/main/.github/workflows/ci.yml) with manual dispatch enabled. This allows non-technical team members (e.g. manual testers) to trigger the test suite and access the report via a permanent link — no local setup required.
 
 ---
 
