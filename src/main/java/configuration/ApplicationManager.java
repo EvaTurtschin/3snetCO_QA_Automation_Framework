@@ -24,6 +24,7 @@ public class ApplicationManager {
             driver = new EdgeDriver(edgeOptions);
         } else if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
+            System.out.println("Window size: " + driver.manage().window().getSize());
             chromeOptions.addArguments("--lang=en");
 
             String isCI = System.getenv("CI"); // GitHub Actions автоматически задаёт CI=true
@@ -36,12 +37,16 @@ public class ApplicationManager {
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
             } else {
-                chromeOptions.addArguments("--start-maximized"); // для наглядного запуска
+                chromeOptions.addArguments("--start-maximized");
             }
 
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(chromeOptions);
-            System.out.println("Window size: " + driver.manage().window().getSize());
+              if ("true".equals(isCI)) {
+                  driver.manage().window().setSize(new Dimension(1920, 1080));
+              } else {
+                  driver.manage().window().maximize();
+              }
         } else if (browser != null &&
                 !browser.equalsIgnoreCase("edge") &&
                 !browser.equalsIgnoreCase("chrome")) {
