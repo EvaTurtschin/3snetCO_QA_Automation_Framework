@@ -53,8 +53,27 @@ git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
 5. To generate and view the Allure Report: `allure serve target/allure-results`.
  or `allure generate target/allure-results --clean -o target/allure-report` 
     `allure open target/allure-report`
-6. 
 
+---
+
+## 🚀 Continuous Integration & Reporting
+
+This project uses GitHub Actions as a continuous integration (CI) system. The CI workflow is triggered manually via the GitHub interface and performs the following steps:
+- Installs dependencies and builds the project using Maven
+- Runs all UI tests in headless mode (Chrome)
+- Generates an Allure Report from the test results
+- Automatically deploys the report to GitHub Pages
+
+✅ The latest test report is available online:
+🔗 [View Allure Report](https://evaturtschin.github.io/3snetCO_QA_Automation_Framework/)
+
+The report includes:
+- Test steps and structure
+- Execution environment details
+- Screenshots on failure (when applicable)
+- Links to source code and failed tests
+
+GitHub Actions uses a separate workflow file (`.github/workflows/ci.yaml`) with manual dispatch enabled. This allows non-technical team members (e.g. manual testers) to trigger the test suite and access the report via a permanent link — no local setup required.
 
 ---
 
