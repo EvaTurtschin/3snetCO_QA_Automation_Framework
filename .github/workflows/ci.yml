@@ -17,9 +17,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Run tests
-        run: mvn clean test
-
       - name: Install Allure CLI
         run: |
           set -e
@@ -32,13 +29,15 @@ jobs:
           echo "Installed version:"
           allure --version
 
-      - name: Check Allure Installed
-        run: |
-          which allure
-          allure --version
+      - name: Run Tests
+        run: mvn clean test
+
+      - name: Display test logs
+        if: failure()
+        run: cat target/surefire-reports/*.txt || true
 
       - name: Generate Allure Report
-        if: always()  # will be added even if fail
+        if: always()
         run: |
           mkdir -p target/allure-report
           allure generate target/allure-results -o target/allure-report --clean
@@ -56,4 +55,3 @@ jobs:
         with:
             name: surefire-reports
             path: target/surefire-reports
-   
