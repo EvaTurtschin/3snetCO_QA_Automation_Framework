@@ -24,7 +24,6 @@ public class ApplicationManager {
             driver = new EdgeDriver(edgeOptions);
         } else if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
-            System.out.println("Window size: " + driver.manage().window().getSize());
             chromeOptions.addArguments("--lang=en");
 
             String isCI = System.getenv("CI"); // GitHub Actions автоматически задаёт CI=true
@@ -42,6 +41,7 @@ public class ApplicationManager {
 
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(chromeOptions);
+            System.out.println("Window size: " + driver.manage().window().getSize());
         } else if (browser != null &&
                 !browser.equalsIgnoreCase("edge") &&
                 !browser.equalsIgnoreCase("chrome")) {
