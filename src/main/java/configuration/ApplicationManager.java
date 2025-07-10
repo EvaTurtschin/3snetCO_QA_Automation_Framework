@@ -54,8 +54,6 @@ public class ApplicationManager {
         }
 
         driver = new EventFiringDecorator(new WDListener()).decorate(driver);
-
-        driver.manage().window().maximize();
         driver.navigate().to("https://3snet.co/");
 
         return driver;
