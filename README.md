@@ -50,7 +50,8 @@ git clone https://github.com/EvaTurtschin/3snetCO_QA_Automation_Framework.git
 
 4. Run tests separately from the `src/test/java` directory or suites from Terminal with `mvn clean test`.
 
-5. To generate and view the Allure Report: `allure serve target/allure-results`.
+5. To generate and view the Allure Report: `allure serve target/allure-results`
+ 
  or `allure generate target/allure-results --clean -o target/allure-report` 
     `allure open target/allure-report`
 
