@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import java.util.UUID;
+import org.openqa.selenium.Dimension;
 
 public class ApplicationManager {
     static WebDriver driver;
