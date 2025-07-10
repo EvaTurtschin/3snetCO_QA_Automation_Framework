@@ -63,6 +63,17 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/allure-report
 
+      - name: Print report URL
+        if: always()
+        run: |
+          echo "✅ Allure report deployed to:"
+          echo "🔗 https://evaturtschin.github.io/3snetCO_QA_Automation_Framework/"
+
+      - name: Add link to job summary
+        if: always()
+        run: |
+          echo "### ✅ [Open Allure Report](https://evaturtschin.github.io/3snetCO_QA_Automation_Framework/)" >> $GITHUB_STEP_SUMMARY
+
       - name: Upload Surefire Reports
         if: failure()
         uses: actions/upload-artifact@v4
