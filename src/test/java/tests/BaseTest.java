@@ -63,6 +63,16 @@ public abstract class BaseTest {
             return new byte[0];
         }
     }
+    
+    @Attachment(value = "Screenshot on Failure", type = "image/png")
+    public void takeScreenshot(String name) {
+    File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    try {
+        Files.copy(src.toPath(), Path.of("target", name + ".png"));
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
 
     protected WebDriverWait getWait5() {
         if (wait5 == null) {
