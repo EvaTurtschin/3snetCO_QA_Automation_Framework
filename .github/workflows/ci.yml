@@ -49,6 +49,13 @@ jobs:
            name: allure-report
            path: target/allure-report
 
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+           name: screenshots
+           path: target/*.png
+
       - name: Upload Surefire Reports
         if: failure()
         uses: actions/upload-artifact@v4
