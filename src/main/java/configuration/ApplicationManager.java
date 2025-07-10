@@ -31,6 +31,7 @@ public class ApplicationManager {
             if ("true".equals(isCI)) {
                 chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--window-size=1920,1080");
+                chromeOptions.addArguments("--window-position=0,0");
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
