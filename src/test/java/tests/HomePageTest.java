@@ -15,9 +15,18 @@ public class HomePageTest extends BaseTest {
     @Description("Verify that clicking the logo in the header navigates back to the homepage from another page")
     public void headerLogoIsClickableAndNavigateToHomePage() {
         HomePage homePage = new HomePage(driver);
-        homePage.clickAffiliateProgramsLinkInHeader();
-        new AffiliateProgramsPage(driver).clickLogoInHeader();
-
+        try {
+           homePage.clickAffiliateProgramsLinkInHeader();
+        } catch (Exception e) {
+        takeScreenshot("affiliate_programs_click_failed");
+        throw e;
+        }
+        try {
+            new AffiliateProgramsPage(driver).clickLogoInHeader();
+        } catch (Exception e) {
+        takeScreenshot("logo_click_failed");
+        throw e;
+        }
         homePage.waitUntilUrlToBe(homePage.getHomePageUrl());
 
         String urlAfter = driver.getCurrentUrl();
