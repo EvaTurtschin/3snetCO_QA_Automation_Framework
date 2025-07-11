@@ -13,7 +13,7 @@ public class AuthorisationPage extends BasePage{
     @FindBy(xpath = "//h1[contains(text(),'Авторизация')]")
     WebElement authorisationPageTitle;
 
-    public boolean varifyAuthorisationPageIsOpen() {
+    public boolean verifyAuthorisationPageIsOpen() {
         String headerText = authorisationPageTitle.getText().toUpperCase().trim();
         System.out.println("HEADER TEXT: [" + headerText + "]");
 

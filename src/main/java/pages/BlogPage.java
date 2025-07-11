@@ -13,7 +13,7 @@ public class BlogPage extends BasePage {
     @FindBy(xpath = "//h1[text()='Блог']")
     private WebElement blogPageTitle;
 
-    public boolean varifyBlogPageIsOpen() {
+    public boolean verifyBlogPageIsOpen() {
         String headerText = blogPageTitle.getText().toUpperCase().trim();
         System.out.println("HEADER TEXT: [" + headerText + "]");
 

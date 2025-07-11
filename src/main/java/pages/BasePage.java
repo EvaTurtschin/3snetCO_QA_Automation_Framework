@@ -91,6 +91,7 @@ public abstract class BasePage {
             wait.until(ExpectedConditions.elementToBeClickable(element));
             return true;
         } catch (TimeoutException e) {
+            logger.warn("Element is not clickable: " + element, e);
             return false;
         }
     }

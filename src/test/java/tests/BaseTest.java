@@ -13,10 +13,16 @@ import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
 
+@Listeners({io.qameta.allure.testng.AllureTestNg.class})
 public abstract class BaseTest {
 
     protected WebDriver driver;
@@ -61,6 +67,16 @@ public abstract class BaseTest {
             logger.warn("Unable to take screenshot: {}", e.getMessage());
             return new byte[0];
         }
+    }
+    
+    @Attachment(value = "Screenshot on Failure", type = "image/png")
+    public void takeScreenshot(String name) {
+    File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    try {
+        Files.copy(src.toPath(), Path.of("target", name + ".png"));
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 
     protected WebDriverWait getWait5() {

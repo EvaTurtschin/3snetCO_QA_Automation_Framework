@@ -13,7 +13,7 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//h1[contains(text(),'Регистрация аффилейта')]")
     private WebElement registrationPageTitle;
 
-    public boolean varifyRegistrationPageIsOpen() {
+    public boolean verifyRegistrationPageIsOpen() {
         String headerText = registrationPageTitle.getText().toUpperCase().trim();
         System.out.println("HEADER TEXT: [" + headerText + "]");
 
