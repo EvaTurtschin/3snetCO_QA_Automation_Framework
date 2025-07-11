@@ -11,7 +11,7 @@ import java.util.UUID;
 import org.openqa.selenium.Dimension;
 
 public class ApplicationManager {
-    static WebDriver driver;
+    private WebDriver driver;
     String browser;
 
     public ApplicationManager(String browser) {
@@ -62,7 +62,7 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    public static WebDriver getDriver() {
+    public WebDriver getDriver() {
         return driver;
     }
 
