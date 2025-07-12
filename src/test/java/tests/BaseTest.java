@@ -27,9 +27,7 @@ public abstract class BaseTest {
 
     protected WebDriver driver;
     private WebDriverWait wait5;
-    protected ApplicationManager app =
-            new ApplicationManager(System
-                    .getProperty("browser", "chrome"));
+    protected ApplicationManager app;
 
     protected Logger logger = LoggerFactory.getLogger(BaseTest.class);
     protected JavascriptExecutor jsExecutor() {
@@ -39,6 +37,7 @@ public abstract class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method, Object[] parameters) {
         logger.info("Start test: " + method.getName() + " with data " + Arrays.asList(parameters));
+        app = new ApplicationManager(System.getProperty("browser", "chrome"));
         driver = app.init();
     }
 
