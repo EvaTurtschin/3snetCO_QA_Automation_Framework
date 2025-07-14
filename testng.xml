@@ -3,7 +3,7 @@
     <test name="Functional Tests">
         <classes>
             <class name="tests.AffiliateProgramsTest"/>
-            <class name="tests.HomePageTest"/>
+            <class name="tests.HomePageTestHeader"/>
         </classes>
     </test>
 <!--    <listeners>-->

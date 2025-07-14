@@ -3,8 +3,13 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AffiliateProgramsPage extends BasePage {
+
+    public AffiliateProgramsPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(tagName = "h1")
     private WebElement title;
@@ -42,10 +47,6 @@ public class AffiliateProgramsPage extends BasePage {
     @FindBy(xpath = "//*[@class='affiliate-program-item all-programs']/*[.='Покер']")
     private WebElement pokerButton;
 
-    public AffiliateProgramsPage(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//h1[@class='section-title level-1']")
     private WebElement affiliatePageTitle;
 
@@ -65,8 +66,6 @@ public class AffiliateProgramsPage extends BasePage {
         return headerText.contains("CPA ПАРТНЕРСКИЕ ПРОГРАММЫ:") &&
                 headerText.contains("ТОП ОФФЕРЫ ДЛЯ ВЕБМАСТЕРОВ И РЕКЛАМОДАТЕЛЕЙ");
     }
-
-
     public String getTitle() {
         return title.getText();
     }
@@ -122,7 +121,6 @@ public class AffiliateProgramsPage extends BasePage {
 
         return new PokerPage(driver);
     }
-
     public void clickLogoInHeader () {
         click(logoInHeader);
     }

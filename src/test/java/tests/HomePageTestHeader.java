@@ -7,16 +7,15 @@ import pages.*;
 
 @Epic("Home Page")
 @Feature("Header Navigation")
-public class HomePageTest extends BaseTest {
+public class HomePageTestHeader extends BaseTest {
 
     @Test(description = "Clicking logo in header returns to homepage")
     @Story("Header logo navigation")
-//    @Severity(SeverityLevel.NORMAL)
     @Description("Verify that clicking the logo in the header navigates back to the homepage from another page")
     public void headerLogoIsClickableAndNavigateToHomePage() {
         HomePage homePage = new HomePage(driver);
         try {
-           homePage.clickAffiliateProgramsLinkInHeader();
+           homePage.header().clickAffiliateProgramsLinkInHeader();
         } catch (Exception e) {
         takeScreenshot("affiliate_programs_click_failed");
         throw e;
@@ -36,15 +35,14 @@ public class HomePageTest extends BaseTest {
 
    @Test(description = "Clicking 'Who we are' scrolls to expected section")
    @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
    @Description("Verify that clicking the 'Who we are' link scrolls the page to the correct section")
    public void WhoWeAreLinkIsClickableAndNavigateToHomePage() {
        HomePage homePage = new HomePage(driver);
 
-       Assert.assertTrue(homePage.verifyWhoWeAreLinkIsClickable(),
+       Assert.assertTrue(homePage.header().verifyWhoWeAreLinkIsClickable(),
                "Who We Are Link in Header should be clickable");
 
-       homePage.clickAffiliateProgramsLinkInHeader();
+       homePage.header().clickAffiliateProgramsLinkInHeader();
        new AffiliateProgramsPage(driver).clickWhoWeAreInHeader();
 
        homePage.waitUntilUrlToBe(homePage.getHomePageUrl());
@@ -56,123 +54,114 @@ public class HomePageTest extends BaseTest {
 
    @Test(description = "Advertisers link goes to anchor section")
    @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
    @Description("Check that the 'Advertisers' link in the header scrolls to the anchor block")
    public void AdvertisersLinkClickNavigateToAdvertisersBlock() {
        HomePage homePage = new HomePage(driver);
 
-       Assert.assertTrue(homePage.verifyAdvertisersLinkIsClickable(),
+       Assert.assertTrue(homePage.header().verifyAdvertisersLinkIsClickable(),
                "Advertisers Link in Header should be clickable");
 
-       homePage.clickAffiliateProgramsLinkInHeader();
+       homePage.header().clickAffiliateProgramsLinkInHeader();
        new AffiliateProgramsPage(driver).clickAdvertisersInHeader();
 
-       homePage.waitUntilUrlToBe(homePage.getAdvetisersAnchorUrl());
+       homePage.waitUntilUrlToBe(homePage.advetisers().getAdvetisersAnchorUrl());
 
        String urlAfter = driver.getCurrentUrl();
-       Assert.assertEquals(urlAfter, homePage.getAdvetisersAnchorUrl(),
+       Assert.assertEquals(urlAfter, homePage.advetisers().getAdvetisersAnchorUrl(),
                "Advertisers link click from Other page (Affiliate Programs page) should navigate to Home page to Anchor section");
-       Assert.assertTrue(homePage.verifyAdvertiserSectionIsVisible(),
+       Assert.assertTrue(homePage.advetisers().verifyAdvertiserSectionIsVisible(),
                "Advertisers Section on Home Page should be visible");
    }
 
     @Test(description = "Affiliate Programs link opens correct page")
     @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Affiliate Programs page via header link")
     public void AffiliateProgramsLinkNavigateToAffiliateProgramsPage() {
         HomePage homePage = new HomePage(driver);
-        Assert.assertTrue(homePage.verifyAffiliateProgramsLinkIsClickable(),
+        Assert.assertTrue(homePage.header().verifyAffiliateProgramsLinkIsClickable(),
                 "Affiliate Programs Link in Header is clickable");
 
-        homePage.clickAffiliateProgramsLinkInHeader();
+        homePage.header().clickAffiliateProgramsLinkInHeader();
         Assert.assertTrue(new AffiliateProgramsPage(driver).verifyAffiliateProgramsPageOpen());
     }
 
    @Test(description = "Blog link opens correct page")
    @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
    @Description("User is redirected to Blog page via header link")
    public void BlogLinkNavigateToBlogPage() {
        HomePage homePage = new HomePage(driver);
 
-       Assert.assertTrue(homePage.verifyBlogLinkIsClickable(),
+       Assert.assertTrue(homePage.header().verifyBlogLinkIsClickable(),
                "Blog Link in Header should be clickable");
 
-       homePage.clickBlogLinkInHeader();
+       homePage.header().clickBlogLinkInHeader();
        Assert.assertTrue(new BlogPage(driver).verifyBlogPageIsOpen());
    }
 
    @Test(description = "Vacancy link opens correct page")
    @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
    @Description("User is redirected to Vacancy page via header link")
    public void VacancyLinkNavigateToAffiliateProgramsPage() {
        HomePage homePage = new HomePage(driver);
 
-       Assert.assertTrue(homePage.verifyVacancyLinkIsClickable(),
+       Assert.assertTrue(homePage.header().verifyVacancyLinkIsClickable(),
                "Vacancy Link in Header should be clickable");
 
-       homePage.clickVacancyLinkInHeader();
+       homePage.header().clickVacancyLinkInHeader();
        Assert.assertTrue(new VacancyPage(driver).varifyVacancyPageIsOpen());
    }
 
    @Test(description = "Contacts link opens correct page")
    @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
    @Description("User is redirected to Contacts page via header link")
    public void ContactsLinkNavigateToAffiliateProgramsPage() {
        HomePage homePage = new HomePage(driver);
 
-       Assert.assertTrue(homePage.verifyContactsLinkIsClickable(),
+       Assert.assertTrue(homePage.header().verifyContactsLinkIsClickable(),
                "Contacts Link in Header should be clickable");
 
-       homePage.clickContactsLinkInHeader();
+       homePage.header().clickContactsLinkInHeader();
        Assert.assertTrue(new ContactsPage(driver).verifyContactsPageIsOpen());
    }
 
     @Test(description = "Enter link opens correct page")
     @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Authorisation page via header link")
     public void EnterLinkNavigateToAuthorisationPage() {
-        new HomePage(driver).clickEnterLinkInHeader();
+        new HomePage(driver).header().clickEnterLinkInHeader();
         Assert.assertTrue(new AuthorisationPage(driver).verifyAuthorisationPageIsOpen());
     }
 
     @Test(description = "Register link opens correct page")
     @Story("Header navigation")
-//    @Severity(SeverityLevel.NORMAL)
     @Description("User is redirected to Registration page via header link")
     public void RegisterLinkNavigateToRegistrationPage() {
-        new HomePage(driver).clickRegisterLinkInHeader();
+        new HomePage(driver).header().clickRegisterLinkInHeader();
         Assert.assertTrue(new RegistrationPage(driver).verifyRegistrationPageIsOpen());
     }
 
     @Test(description = "Clicking language button opens Dropdown language menu")
     @Story("Language selection")
-//    @Severity(SeverityLevel.MINOR)
     @Description("Verify that clicking the language button in the header opens the language dropdown menu")
     public void LanguageBtnOpensLanguageDropdownMenu() {
         HomePage homePage = new HomePage(driver);
-        homePage.clickLanguageBtn();
-        Assert.assertTrue(homePage.verifyLanguageDropdownOpens());
+        homePage.header().clickLanguageBtn();
+        Assert.assertTrue(homePage.header().verifyLanguageDropdownOpens());
     }
 
    @Test(description = "Clicking language icon in Dropdown menu changes page language")
    @Story("Language selection")
-//    @Severity(SeverityLevel.NORMAL)
    @Description("Verify that clicking the language icon in the dropdown changes the site language")
    public void LanguageIconClickInDropdownChangesPageLanguage() {
        HomePage homePage = new HomePage(driver);
-       String languageBefore = homePage.getHeaderLanguageSnapshot();
-       homePage.clickLanguageIconInDropdown();
-       String languageAfter = homePage.getHeaderLanguageSnapshot();
+       String languageBefore = homePage.header().getHeaderLanguageSnapshot();
+       homePage.header().clickLanguageIconInDropdown();
+       String languageAfter = homePage.header().getHeaderLanguageSnapshot();
        Assert.assertNotEquals(languageBefore, languageAfter,
                "Clicking language icon in dropdown should change the page language.");
 
-       homePage.clickLanguageIconInDropdown();
-       homePage.waitUntilTextPresent(homePage.getWhoWeAreLinkElement(),"КТО МЫ");
+       homePage.header().clickLanguageIconInDropdown();
+       homePage.waitUntilTextPresent(homePage.header().getWhoWeAreLinkElement(),"КТО МЫ");
    }
 
 }

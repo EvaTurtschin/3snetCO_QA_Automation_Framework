@@ -41,7 +41,7 @@ public abstract class BasePage {
         element.click();
     }
 
-    public void scrollToElement(WebElement element) {
+    public void moveToElement(WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
     }

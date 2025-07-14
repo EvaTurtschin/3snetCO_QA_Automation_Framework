@@ -17,7 +17,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testTitleText() {
         String title = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .getTitle();
 
         Assert.assertEquals(title, TITLE);
@@ -26,7 +26,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testPlaceholderSearchText() {
         String placeholderSearchText = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .getPlaceholderSearchText();
 
         Assert.assertEquals(placeholderSearchText, PLACEHOLDER_SEARCH_TEXT);
@@ -35,7 +35,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testCategoryDefaultText() {
         String categoryDefaultText = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .getCategoryDefaultText();
 
         Assert.assertEquals(categoryDefaultText, CATEGORY_DEFAULT_TEXT);
@@ -44,7 +44,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testPaymentModelDefaultText() {
         String paymentModelDefaultText = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .getPaymentModelDefaultText();
 
                 Assert.assertEquals(paymentModelDefaultText, PAYMENT_MODEL_DEFAULT_TEXT);
@@ -53,7 +53,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testGeoDefaultText() {
         String geoDefaultText = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .getGeoDefaultText();
 
                 Assert.assertEquals(geoDefaultText, GEO_DEFAULT_TEXT);
@@ -62,7 +62,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToContacts() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .clickJoin()
                 .getCurrentUrl();
 
@@ -72,7 +72,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToBetting() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .clickBettingButton()
                 .getCurrentUrl();
 
@@ -82,7 +82,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToGambling() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .clickGamblingButton()
                 .getCurrentUrl();
 
@@ -92,7 +92,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToCybersport() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .clickCybersportButton()
                 .getCurrentUrl();
 
@@ -102,7 +102,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToLoto() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .clickLotoButton()
                 .getCurrentUrl();
 
@@ -112,7 +112,7 @@ public class AffiliateProgramsTest extends BaseTest {
     @Test
     public void testRedirectToPoker() {
         String url = new HomePage(driver)
-                .clickAffiliateProgramsLinkInHeader()
+                .header().clickAffiliateProgramsLinkInHeader()
                 .clickPokerButton()
                 .getCurrentUrl();
 
