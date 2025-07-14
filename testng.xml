@@ -4,9 +4,7 @@
         <classes>
             <class name="tests.AffiliateProgramsTest"/>
             <class name="tests.HomePageTestHeader"/>
+            <class name="tests.HomePageTestVerticals"/>
         </classes>
     </test>
-<!--    <listeners>-->
-<!--        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>-->
-<!--    </listeners>-->
 </suite>
