@@ -3,8 +3,8 @@
     <test name="Functional Tests">
         <classes>
             <class name="tests.AffiliateProgramsTest"/>
-            <class name="tests.HomePageTestHeader"/>
-            <class name="tests.HomePageTestVerticals"/>
+            <class name="tests.HomePageHeaderTest"/>
+            <class name="tests.HomePageVerticalsTest"/>
         </classes>
     </test>
 </suite>

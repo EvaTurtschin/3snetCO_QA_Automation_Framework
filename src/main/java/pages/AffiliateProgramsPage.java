@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class AffiliateProgramsPage extends BasePage {
 
@@ -110,10 +109,10 @@ public class AffiliateProgramsPage extends BasePage {
         return new CybersportPage(driver);
     }
 
-    public LotoPage clickLotoButton() {
+    public LotteryPage clickLotoButton() {
         lotoButton.click();
 
-        return new LotoPage(driver);
+        return new LotteryPage(driver);
     }
 
     public PokerPage clickPokerButton() {

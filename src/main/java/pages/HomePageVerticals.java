@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class HomePageVerticals extends BasePage{
@@ -53,13 +52,13 @@ public class HomePageVerticals extends BasePage{
     private WebElement lotteryIconImage;
 
     @FindBy(xpath = "//a[@href='traffic-cybersport/']/parent::li")
-    private WebElement esportsIconInVerticals;
+    private WebElement cybersportIconInVerticals;
 
     @FindBy(xpath = "//a[@href='traffic-cybersport/']")
-    private WebElement esportsBackground;
+    private WebElement cybersportBackground;
 
     @FindBy(xpath = "//img[@class='image-cybersport']")
-    private WebElement esportsIconImage;
+    private WebElement cybersportIconImage;
 
     @FindBy(xpath = "//a[@href='dating/']/parent::li")
     private WebElement datingIconInVerticals;
@@ -186,30 +185,30 @@ public class HomePageVerticals extends BasePage{
         return true;
     }
 
-    @Step("Verify ESports Icon in Verticals section changes behavior on hover")
-    public boolean verifyESportsVerticalChangesColorOnHover(){
+    @Step("Verify Cybersport Icon in Verticals section changes behavior on hover")
+    public boolean verifyCybersportVerticalChangesColorOnHover(){
         moveToElement(verticalsSection);
-        String initialStyle = esportsBackground.getCssValue("color");
+        String initialStyle = cybersportBackground.getCssValue("color");
         logger.info("Initial color: " +initialStyle);
-        moveToElement(esportsIconInVerticals);
-        String hoveredStyle = esportsBackground.getCssValue("color");
+        moveToElement(cybersportIconInVerticals);
+        String hoveredStyle = cybersportBackground.getCssValue("color");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Background color should change on hover");
         return true;
     }
 
-    @Step("Verify ESports icon image in Verticals section animates on hover")
-    public boolean verifyESportsImageAnimationOnHover() {
+    @Step("Verify Cybersport icon image in Verticals section animates on hover")
+    public boolean verifyCybersportImageAnimationOnHover() {
         moveToElement(verticalsSection);
-        String initialTransform = esportsIconImage.getCssValue("transform");
+        String initialTransform = cybersportIconImage.getCssValue("transform");
         logger.info("Initial transform: " +initialTransform);
-        moveToElement(esportsIconInVerticals);
+        moveToElement(cybersportIconInVerticals);
         try {
             Thread.sleep(300);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        String hoveredTransform = esportsIconImage.getCssValue("transform");
+        String hoveredTransform = cybersportIconImage.getCssValue("transform");
         logger.info("Hovered transform: " + hoveredTransform);
         Assert.assertNotEquals(hoveredTransform, initialTransform, "Icon image should animate on hover");
         return true;
@@ -253,6 +252,61 @@ public class HomePageVerticals extends BasePage{
     @Step("Verify Gambling Icon is Clickable")
     public boolean verifyGamblingIconIsClickable() {
         return isElementClickable(gamblingIconInVerticals);
+    }
+
+    public PokerPage clickPokerIconInVerticals() {
+        click(pokerIconInVerticals);
+        logger.info("Clicked on the Poker Icon in Verticals section");
+        return new PokerPage(driver);
+    }
+
+    @Step("Verify Poker Icon is Clickable")
+    public boolean verifyPokerIconIsClickable() {
+        return isElementClickable(pokerIconInVerticals);
+    }
+
+    public BettingPage clickBettingIconInVerticals() {
+        click(bettingIconInVerticals);
+        logger.info("Clicked on the Betting Icon in Verticals section");
+        return new BettingPage(driver);
+    }
+
+    @Step("Verify Betting Icon is Clickable")
+    public boolean verifyBettingIconIsClickable() {
+        return isElementClickable(bettingIconInVerticals);
+    }
+
+    public LotteryPage clickLotteryIconInVerticals() {
+        click(lotteryIconInVerticals);
+        logger.info("Clicked on the Lottery Icon in Verticals section");
+        return new LotteryPage(driver);
+    }
+
+    @Step("Verify Lottery Icon is Clickable")
+    public boolean verifyLotteryIconIsClickable() {
+        return isElementClickable(lotteryIconInVerticals);
+    }
+
+    public CybersportPage clickCybersportIconInVerticals() {
+        click(cybersportIconInVerticals);
+        logger.info("Clicked on the Cybersport Icon in Verticals section");
+        return new CybersportPage(driver);
+    }
+
+    @Step("Verify Cybersport Icon is Clickable")
+    public boolean verifyCybersportIconIsClickable() {
+        return isElementClickable(cybersportIconInVerticals);
+    }
+
+    public DatingPage clickDatingIconInVerticals() {
+        click(datingIconInVerticals);
+        logger.info("Clicked on the Dating Icon in Verticals section");
+        return new DatingPage(driver);
+    }
+
+    @Step("Verify Dating Icon is Clickable")
+    public boolean verifyDatingIconIsClickable() {
+        return isElementClickable(datingIconInVerticals);
     }
 
 

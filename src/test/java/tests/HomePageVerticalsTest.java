@@ -1,14 +1,13 @@
 package tests;
 
 import io.qameta.allure.*;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
 @Epic("Home Page")
 @Feature("Verticals section")
-public class HomePageTestVerticals extends BaseTest{
+public class HomePageVerticalsTest extends BaseTest{
 
     @Test(description = "Hovering over the Gambling icon changes its color and starts animation")
     @Story("Gambling icon behavior in Verticals section")
@@ -51,8 +50,8 @@ public class HomePageTestVerticals extends BaseTest{
     @Description("Verify color change and animation on hover over the ESports icon in the Verticals section.")
     public void ESportsVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
-        homePage.verticals().verifyESportsVerticalChangesColorOnHover();
-        homePage.verticals().verifyESportsImageAnimationOnHover();
+        homePage.verticals().verifyCybersportVerticalChangesColorOnHover();
+        homePage.verticals().verifyCybersportImageAnimationOnHover();
     }
 
     @Test(description = "Hovering over the Dating icon changes its color and starts animation")
@@ -76,4 +75,60 @@ public class HomePageTestVerticals extends BaseTest{
         homePage.verticals().clickGamblingIconInVerticals();
         Assert.assertTrue(new GamblingPage(driver).verifyGamblingPageIsOpen());
     }
+
+    @Test(description = "Poker Icon is clickable and opens the correct page")
+    @Story("Varticals navigation")
+    @Description("Verify Poker Icon opens the correct page from the Verticals section.")
+    public void PokerIconIsClickableAndNavigateToPokerPage(){
+        HomePage homePage = new HomePage(driver);
+       Assert.assertTrue(homePage.verticals().verifyPokerIconIsClickable(),
+                "Poker Icon In Verticals should be clickable");
+
+       homePage.verticals().clickPokerIconInVerticals().verifyPokerPageIsOpen();
+    }
+
+    @Test(description = "Betting Icon is clickable and opens the correct page")
+    @Story("Varticals navigation")
+    @Description("Verify Betting Icon opens the correct page from the Verticals section.")
+    public void BettingIconIsClickableAndNavigateToBettingPage(){
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.verticals().verifyBettingIconIsClickable(),
+                "Betting Icon In Verticals should be clickable");
+
+        homePage.verticals().clickBettingIconInVerticals().verifyBettingPageIsOpen();
+    }
+
+    @Test(description = "Lottery Icon is clickable and opens the correct page")
+    @Story("Varticals navigation")
+    @Description("Verify Lottery Icon opens the correct page from the Verticals section.")
+    public void LotteryIconIsClickableAndNavigateToLotteryPage(){
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.verticals().verifyLotteryIconIsClickable(),
+                "Lottery Icon In Verticals should be clickable");
+
+        homePage.verticals().clickLotteryIconInVerticals().verifyLotteryPageIsOpen();
+    }
+
+    @Test(description = "Cybersport Icon is clickable and opens the correct page")
+    @Story("Varticals navigation")
+    @Description("Verify Cybersport Icon opens the correct page from the Verticals section.")
+    public void CybersportIconIsClickableAndNavigateToCybersportPage(){
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.verticals().verifyCybersportIconIsClickable(),
+                "Cybersport Icon In Verticals should be clickable");
+
+        homePage.verticals().clickCybersportIconInVerticals().verifyCybersportPageIsOpen();
+    }
+
+    @Test(description = "Dating Icon is clickable and opens the correct page")
+    @Story("Varticals navigation")
+    @Description("Verify Dating Icon opens the correct page from the Verticals section.")
+    public void DatingIconIsClickableAndNavigateToDatingPage(){
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.verticals().verifyDatingIconIsClickable(),
+                "Dating Icon In Verticals should be clickable");
+
+        homePage.verticals().clickDatingIconInVerticals().verifyDatingPageIsOpen();
+    }
+
 }

@@ -7,7 +7,7 @@ import pages.*;
 
 @Epic("Home Page")
 @Feature("Header Navigation")
-public class HomePageTestHeader extends BaseTest {
+public class HomePageHeaderTest extends BaseTest {
 
     @Test(description = "Clicking logo in header returns to homepage")
     @Story("Header logo navigation")
