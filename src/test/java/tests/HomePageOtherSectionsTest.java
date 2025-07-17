@@ -5,8 +5,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
-import pages.ContactsPage;
-import pages.HomePage;
+import pages.*;
 
 @Epic("Home Page")
 @Feature("Other Home Page Tests")
@@ -43,6 +42,39 @@ public class HomePageOtherSectionsTest extends BaseTest{
         ContactsPage contactsPage = homePage.clickSecondEventBanner();
         contactsPage.verifyContactsPageIsOpen();
         contactsPage.verifyArrangeAMeetingIsInASubjectField();
+    }
+
+    @Test(description = "Clicking Offers Link In Round Ellipses Section opens Best Offers Page")
+    @Story("Navigation In Round Ellipses Section")
+    @Description("Verify that Offers Link In Round Ellipses Section changes on hover and opens the correct Page")
+    public void ClickingOffersLinkInRoundEllipsesSectionNavigateToBestOffersPage() {
+        HomePage homePage = new HomePage(driver);
+        homePage.verifyOffersLinkInRoundEllipsesSectionChangesOnHover();
+
+        BestOffersPage offersPage = homePage.clickOffersLinkInRoundEllipsesSection();
+        offersPage.verifyBestOffersPageIsOpen();
+    }
+
+    @Test(description = "Clicking Promocode Link In Round Ellipses Section opens Best Promocode Page")
+    @Story("Navigation In Round Ellipses Section")
+    @Description("Verify that Promocode Link In Round Ellipses Section changes on hover and opens the correct Page")
+    public void ClickingPromocodeLinkInRoundEllipsesSectionNavigateToPromocodePage() {
+        HomePage homePage = new HomePage(driver);
+        homePage.verifyPromocodeLinkInRoundEllipsesSectionChangesOnHover();
+
+        PromocodePage promocodePage = homePage.clickPromocodeLinkInRoundEllipsesSection();
+        promocodePage.verifyPromocodePageIsOpen();
+    }
+
+    @Test(description = "Clicking Affiliate Programs Link In Round Ellipses Section opens Best Promocode Page")
+    @Story("Navigation In Round Ellipses Section")
+    @Description("Verify that Affiliate Programs Link In Round Ellipses Section changes on hover and opens the correct Page")
+    public void ClickingAffiliateProgramsLinkInRoundEllipsesSectionNavigateToAffiliateProgramsPage() {
+        HomePage homePage = new HomePage(driver);
+        homePage.verifyAffiliateProgramsLinkInRoundEllipsesSectionChangesOnHover();
+
+        AffiliateProgramsPage affiliateProgramsPage = homePage.clickAffiliateProgramsLinkInRoundEllipsesSection();
+        affiliateProgramsPage.verifyAffiliateProgramsPageOpen();
     }
 
 }

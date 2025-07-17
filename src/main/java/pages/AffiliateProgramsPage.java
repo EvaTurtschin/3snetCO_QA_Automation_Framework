@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class AffiliateProgramsPage extends BasePage {
 
@@ -59,11 +60,9 @@ public class AffiliateProgramsPage extends BasePage {
     private WebElement advertisersLink;
 
     public boolean verifyAffiliateProgramsPageOpen() {
-        String headerText = affiliatePageTitle.getText().toUpperCase().trim();
-        System.out.println("HEADER TEXT: [" + headerText + "]");
-
-        return headerText.contains("CPA ПАРТНЕРСКИЕ ПРОГРАММЫ:") &&
-                headerText.contains("ТОП ОФФЕРЫ ДЛЯ ВЕБМАСТЕРОВ И РЕКЛАМОДАТЕЛЕЙ");
+        String url = new PromocodePage(driver).getCurrentUrl();
+        Assert.assertEquals(url, "https://3snet.co/affiliate_programs/");
+        return true;
     }
     public String getTitle() {
         return title.getText();
