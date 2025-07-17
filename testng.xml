@@ -5,6 +5,7 @@
             <class name="tests.AffiliateProgramsTest"/>
             <class name="tests.HomePageHeaderTest"/>
             <class name="tests.HomePageVerticalsTest"/>
+            <class name="tests.HomePageOtherSectionsTest"/>
         </classes>
     </test>
 </suite>

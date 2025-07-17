@@ -265,6 +265,7 @@ public class HomePageVerticals extends BasePage{
         return isElementClickable(pokerIconInVerticals);
     }
 
+    @Step("Click Betting Icon In Verticals")
     public BettingPage clickBettingIconInVerticals() {
         click(bettingIconInVerticals);
         logger.info("Clicked on the Betting Icon in Verticals section");
@@ -276,6 +277,7 @@ public class HomePageVerticals extends BasePage{
         return isElementClickable(bettingIconInVerticals);
     }
 
+    @Step("Click Lottery Icon In Verticals")
     public LotteryPage clickLotteryIconInVerticals() {
         click(lotteryIconInVerticals);
         logger.info("Clicked on the Lottery Icon in Verticals section");
@@ -287,6 +289,7 @@ public class HomePageVerticals extends BasePage{
         return isElementClickable(lotteryIconInVerticals);
     }
 
+    @Step("Click Cybersport Icon In Verticals")
     public CybersportPage clickCybersportIconInVerticals() {
         click(cybersportIconInVerticals);
         logger.info("Clicked on the Cybersport Icon in Verticals section");
@@ -298,6 +301,7 @@ public class HomePageVerticals extends BasePage{
         return isElementClickable(cybersportIconInVerticals);
     }
 
+    @Step("Click Dating Icon In Verticals")
     public DatingPage clickDatingIconInVerticals() {
         click(datingIconInVerticals);
         logger.info("Clicked on the Dating Icon in Verticals section");
