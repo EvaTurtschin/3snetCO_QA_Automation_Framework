@@ -12,7 +12,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Hovering over the Gambling icon changes its color and starts animation")
     @Story("Gambling icon behavior in Verticals section")
     @Description("Verify color change and animation on hover over the Gambling icon in the Verticals section.")
-    public void GamblingVerticalCanChangeItsBehavior() {
+    public void gamblingVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
         homePage.verticals().verifyGamblingVerticalChangesColorOnHover();
         homePage.verticals().verifyGamblingImageAnimationOnHover();
@@ -21,7 +21,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Hovering over the Poker icon changes its color and starts animation")
     @Story("Poker icon behavior in Verticals section")
     @Description("Verify color change and animation on hover over the Poker icon in the Verticals section.")
-    public void PokerVerticalCanChangeItsBehavior() {
+    public void pokerVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
         homePage.verticals().verifyPokerVerticalChangesColorOnHover();
         homePage.verticals().verifyPokerImageAnimationOnHover();
@@ -30,7 +30,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Hovering over the Betting icon changes its color and starts animation")
     @Story("Betting icon behavior in Verticals section")
     @Description("Verify color change and animation on hover over the Betting icon in the Verticals section.")
-    public void BettingVerticalCanChangeItsBehavior() {
+    public void bettingVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
         homePage.verticals().verifyBettingVerticalChangesColorOnHover();
         homePage.verticals().verifyBettingImageAnimationOnHover();
@@ -39,7 +39,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Hovering over the Lottery icon changes its color and starts animation")
     @Story("Lottery icon behavior in Verticals section")
     @Description("Verify color change and animation on hover over the Lottery icon in the Verticals section.")
-    public void LotteryVerticalCanChangeItsBehavior() {
+    public void lotteryVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
         homePage.verticals().verifyLotteryVerticalChangesColorOnHover();
         homePage.verticals().verifyLotteryImageAnimationOnHover();
@@ -48,7 +48,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Hovering over the ESports icon changes its color and starts animation")
     @Story("ESports icon behavior in Verticals section")
     @Description("Verify color change and animation on hover over the ESports icon in the Verticals section.")
-    public void ESportsVerticalCanChangeItsBehavior() {
+    public void cybersportVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
         homePage.verticals().verifyCybersportVerticalChangesColorOnHover();
         homePage.verticals().verifyCybersportImageAnimationOnHover();
@@ -57,7 +57,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Hovering over the Dating icon changes its color and starts animation")
     @Story("Dating icon behavior in Verticals section")
     @Description("Verify color change and animation on hover over the Dating icon in the Verticals section.")
-    public void DatingVerticalCanChangeItsBehavior() {
+    public void datingVerticalCanChangeItsBehavior() {
         HomePage homePage = new HomePage(driver);
         homePage.verticals().verifyDatingVerticalChangesColorOnHover();
         homePage.verticals().verifyDatingImageAnimationOnHover();
@@ -66,7 +66,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Gambling Icon is clickable and opens the correct page")
     @Story("Varticals navigation")
     @Description("Verify Gambling Icon opens the correct page from the Verticals section.")
-    public void GamblingIconIsClickableAndNavigateToGamblingPage(){
+    public void gamblingIconIsClickableAndNavigateToGamblingPage(){
         HomePage homePage = new HomePage(driver);
 
         Assert.assertTrue(homePage.verticals().verifyGamblingIconIsClickable(),
@@ -79,7 +79,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Poker Icon is clickable and opens the correct page")
     @Story("Varticals navigation")
     @Description("Verify Poker Icon opens the correct page from the Verticals section.")
-    public void PokerIconIsClickableAndNavigateToPokerPage(){
+    public void pokerIconIsClickableAndNavigateToPokerPage(){
         HomePage homePage = new HomePage(driver);
        Assert.assertTrue(homePage.verticals().verifyPokerIconIsClickable(),
                 "Poker Icon In Verticals should be clickable");
@@ -90,7 +90,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Betting Icon is clickable and opens the correct page")
     @Story("Varticals navigation")
     @Description("Verify Betting Icon opens the correct page from the Verticals section.")
-    public void BettingIconIsClickableAndNavigateToBettingPage(){
+    public void bettingIconIsClickableAndNavigateToBettingPage(){
         HomePage homePage = new HomePage(driver);
         Assert.assertTrue(homePage.verticals().verifyBettingIconIsClickable(),
                 "Betting Icon In Verticals should be clickable");
@@ -101,7 +101,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Lottery Icon is clickable and opens the correct page")
     @Story("Varticals navigation")
     @Description("Verify Lottery Icon opens the correct page from the Verticals section.")
-    public void LotteryIconIsClickableAndNavigateToLotteryPage(){
+    public void lotteryIconIsClickableAndNavigateToLotteryPage(){
         HomePage homePage = new HomePage(driver);
         Assert.assertTrue(homePage.verticals().verifyLotteryIconIsClickable(),
                 "Lottery Icon In Verticals should be clickable");
@@ -112,7 +112,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Cybersport Icon is clickable and opens the correct page")
     @Story("Varticals navigation")
     @Description("Verify Cybersport Icon opens the correct page from the Verticals section.")
-    public void CybersportIconIsClickableAndNavigateToCybersportPage(){
+    public void cybersportIconIsClickableAndNavigateToCybersportPage(){
         HomePage homePage = new HomePage(driver);
         Assert.assertTrue(homePage.verticals().verifyCybersportIconIsClickable(),
                 "Cybersport Icon In Verticals should be clickable");
@@ -123,7 +123,7 @@ public class HomePageVerticalsTest extends BaseTest{
     @Test(description = "Dating Icon is clickable and opens the correct page")
     @Story("Varticals navigation")
     @Description("Verify Dating Icon opens the correct page from the Verticals section.")
-    public void DatingIconIsClickableAndNavigateToDatingPage(){
+    public void datingIconIsClickableAndNavigateToDatingPage(){
         HomePage homePage = new HomePage(driver);
         Assert.assertTrue(homePage.verticals().verifyDatingIconIsClickable(),
                 "Dating Icon In Verticals should be clickable");

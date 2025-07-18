@@ -1,10 +1,13 @@
 package pages;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
+import java.security.Key;
 
 
 public class HomePage extends BasePage {
@@ -38,7 +41,7 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[@class ='btn yellowGrd']")
     private WebElement join3SNetButton;
-    @FindBy(xpath = "//div[@class ='col-xs-12 join-3snet']")
+    @FindBy(xpath = "//div[contains(@class, 'join-3snet')]")
     private WebElement join3SNetButtonSection;
 
     @FindBy(xpath = "//li[@class='online-help']") //section[@id='eventsFrom3SnetInfo']")
@@ -62,6 +65,41 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href='/affiliate_programs/']")
     private WebElement affiliateProgramsInRoundEllipses;
 
+    @FindBy(xpath = "//form[@role='search']")
+    private WebElement searchBlock;
+
+    @FindBy(xpath = "//input[@type='text']")
+    private WebElement searchInputField;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    private WebElement searchSubmitButton;
+
+    @Step("Click Submit Button in Search Section")
+    public SearchResultsPage clickSubmitButtonInSearchSection() {
+        clickWithJSScroll(searchSubmitButton);
+        logger.info("Clicked on the Submit Button in Search Section");
+        return new SearchResultsPage(driver);
+    }
+
+    @Step("Click Input Field in Search Section")
+    public void clickInputFieldInSearchSection() {
+        clickWithJSScroll(searchInputField);
+        logger.info("Clicked on the Input Field in Search Section");
+    }
+
+    @Step("Press Enter Key While Focused On Input Field In Search Section")
+    public SearchResultsPage pressEnterKeyWhileFocusedOnInputFieldInSearchSection() {
+        moveToElement(searchInputField);
+        searchInputField.sendKeys(Keys.ENTER);
+        logger.info("Enter Key pressed on the Input Field in Search Section");
+        return new SearchResultsPage(driver);
+    }
+
+    @Step("Enter text 'test text' into Input Field in Search Section")
+    public void enterTextInInputFieldInSearchSection() {
+        typeText(searchInputField, "test text");
+    }
+
     @Step("Click Join 3SNet Button")
     public RegistrationPage clickJoin3SNetButton() {
         clickWithJSScroll(join3SNetButton);
@@ -74,6 +112,7 @@ public class HomePage extends BasePage {
         moveToElement(join3SNetButtonSection);
         String initialStyle = join3SNetButton.getCssValue("background");
         logger.info("Initial color: " +initialStyle);
+        waitUntilClickable(join3SNetButtonSection);
         moveToElement(join3SNetButton);
         String hoveredStyle = join3SNetButton.getCssValue("background");
         logger.info("Hoved color: " + hoveredStyle);

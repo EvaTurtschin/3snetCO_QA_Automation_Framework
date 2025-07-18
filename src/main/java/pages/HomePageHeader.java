@@ -36,6 +36,9 @@ public class HomePageHeader extends BasePage{
     @FindBy(xpath = "//img[@class='language-flag']")
     private WebElement laguageIconInDropdown;
 
+    @FindBy(xpath = "//a[text()='РЕКЛАМОДАТЕЛИ']")
+    private WebElement advertisersLink;
+
     @Step("Get language snapshot from Who We Are link in header")
     public String getHeaderLanguageSnapshot() {
         return whoWeAreLinkinHeader.getText().toUpperCase().trim();
@@ -50,6 +53,11 @@ public class HomePageHeader extends BasePage{
         click(affiliateProgramsLinkinHeader);
         logger.info("Clicked on Affiliate Programs Link in Header");
         return new AffiliateProgramsPage(driver);
+    }
+
+    @Step("Click Advertisers Link in Header Navigation on Affiliate Programs Page")
+    public void clickAdvertisersInHeader() {
+        click(advertisersLink);
     }
 
     @Step("Click Blog link in header")

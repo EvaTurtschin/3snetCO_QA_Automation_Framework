@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,79 +57,88 @@ public class AffiliateProgramsPage extends BasePage {
     @FindBy(xpath = "//a[@class='active who-we-are']")
     private WebElement whoWeAreLinkInHeader;
 
-    @FindBy(xpath = "//a[text()='РЕКЛАМОДАТЕЛИ']")
-    private WebElement advertisersLink;
-
+    @Step ("Verify Affiliate Programs Page is Open")
     public boolean verifyAffiliateProgramsPageOpen() {
         String url = new PromocodePage(driver).getCurrentUrl();
         Assert.assertEquals(url, "https://3snet.co/affiliate_programs/");
         return true;
     }
+
+    @Step ("Getting Title")
     public String getTitle() {
         return title.getText();
     }
 
-    public String getPlaceholderSearchText() {
+    @Step ("Getting Placeholder Search text")
+    public String getSearchDefaultText() {
         return placeholderSearchText.getAttribute("placeholder");
     }
 
-    public String getCategoryDefaultText() {
+    @Step ("Getting Category Default text")
+    public String getVerticalDefaultText() {
         return categoryDefaultText.getText();
     }
 
+    @Step ("Getting Payment Model Default text")
     public String getPaymentModelDefaultText() {
         return paymentModelDefaultText.getText();
     }
 
+    @Step ("Getting GEO Default text")
     public String getGeoDefaultText() {
         return getGeoDefaultText.getText();
     }
 
+    @Step("Click Join Button on Affiliate Programs Page")
     public ContactsPage clickJoin() {
         joinButton.click();
 
         return new ContactsPage(driver);
     }
 
+    @Step("Click Betting Button on Affiliate Programs Page")
     public BettingPage clickBettingButton() {
         bettingButton.click();
 
         return new BettingPage(driver);
     }
 
+    @Step("Click Gambling Button on Affiliate Programs Page")
     public GamblingPage clickGamblingButton() {
         gamblingButton.click();
 
         return new GamblingPage(driver);
     }
 
+    @Step("Click Cybersport Button on Affiliate Programs Page")
     public CybersportPage clickCybersportButton() {
         cybersportButton.click();
 
         return new CybersportPage(driver);
     }
 
+    @Step("Click Loto Button on Affiliate Programs Page")
     public LotteryPage clickLotoButton() {
         lotoButton.click();
 
         return new LotteryPage(driver);
     }
 
+    @Step("Click Poker Button on Affiliate Programs Page")
     public PokerPage clickPokerButton() {
         pokerButton.click();
 
         return new PokerPage(driver);
     }
+
+    @Step("Click Logo in header on Affiliate Programs Page")
     public void clickLogoInHeader () {
         click(logoInHeader);
     }
 
+    @Step("Click Who We Are Link in Header Navigation on Affiliate Programs Page")
     public void clickWhoWeAreInHeader () {
         click(whoWeAreLinkInHeader);
-    }
-
-    public void clickAdvertisersInHeader() {
-        click(advertisersLink);
     }
 
 }
