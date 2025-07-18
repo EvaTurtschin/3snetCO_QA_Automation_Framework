@@ -1,4 +1,4 @@
-name: CI CD Build
+name: CI CD Build for ea/partner branch
 
 on:
   push:
