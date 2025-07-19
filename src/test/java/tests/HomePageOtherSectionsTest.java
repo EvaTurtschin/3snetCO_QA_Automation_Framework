@@ -121,4 +121,6 @@ public class HomePageOtherSectionsTest extends BaseTest{
         homePage.pressEnterKeyWhileFocusedOnInputFieldInSearchSection().verifySearchResultsIsCorrect();
     }
 
+
+
 }

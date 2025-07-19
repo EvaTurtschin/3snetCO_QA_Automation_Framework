@@ -7,33 +7,37 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import java.security.Key;
-
-
 public class HomePage extends BasePage {
 
     private HomePageHeader header;
     private HomePageAdvetisers advetisers;
     private HomePageVerticals verticals;
+    private HomePageTopOffers topOffers;
+    private HomePageQuickLinks quickLinks;
+    private HomePageFooter footer;
 
     public HomePage(WebDriver driver) {
         super(driver);
         this.header = new HomePageHeader(driver);
         this.advetisers = new HomePageAdvetisers(driver);
         this.verticals = new HomePageVerticals(driver);
+        this.topOffers = new HomePageTopOffers(driver);
+        this.quickLinks = new HomePageQuickLinks(driver);
+        this.footer = new HomePageFooter(driver);
     }
 
     public HomePageHeader header() {
         return header;
     }
-
     public HomePageAdvetisers advetisers() {
         return advetisers;
     }
-
     public HomePageVerticals verticals() {
         return verticals;
     }
+    public HomePageTopOffers topOffers() {return topOffers;}
+    public HomePageQuickLinks quickLinks() {return quickLinks;}
+    public HomePageFooter footer() {return footer;}
 
     public String getHomePageUrl() {
         return "https://3snet.co/";
@@ -43,34 +47,22 @@ public class HomePage extends BasePage {
     private WebElement join3SNetButton;
     @FindBy(xpath = "//div[contains(@class, 'join-3snet')]")
     private WebElement join3SNetButtonSection;
-
     @FindBy(xpath = "//li[@class='online-help']") //section[@id='eventsFrom3SnetInfo']")
     private WebElement letsMeetSection;
-
     @FindBy(xpath = "(//a[contains(@href,'/contacts')])[2]")
     private WebElement firstEventBanner;
-
     @FindBy(xpath = "(//a[contains(@href,'/contacts')])[4]")
     private WebElement secondEventBanner;
-
     @FindBy(xpath = "//img[@class='image-round-ellipses']")
     private WebElement navigationInRoundEllipses;
-
     @FindBy(xpath = "(//a[@href='/best_offers/'])[1]")
     private WebElement offersInRoundEllipses;
-
     @FindBy(xpath = "(//a[@href='/promocode/'])[1]")
     private WebElement promocodeInRoundEllipses;
-
     @FindBy(xpath = "//a[@href='/affiliate_programs/']")
     private WebElement affiliateProgramsInRoundEllipses;
-
-    @FindBy(xpath = "//form[@role='search']")
-    private WebElement searchBlock;
-
     @FindBy(xpath = "//input[@type='text']")
     private WebElement searchInputField;
-
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement searchSubmitButton;
 
@@ -108,7 +100,7 @@ public class HomePage extends BasePage {
     }
 
     @Step("Verify Join 3SNet Button changes behavior on hover")
-    public boolean verifyJoin3SNetButtonChangesColorOnHover(){
+    public void verifyJoin3SNetButtonChangesColorOnHover(){
         moveToElement(join3SNetButtonSection);
         String initialStyle = join3SNetButton.getCssValue("background");
         logger.info("Initial color: " +initialStyle);
@@ -117,11 +109,10 @@ public class HomePage extends BasePage {
         String hoveredStyle = join3SNetButton.getCssValue("background");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Background color should change on hover");
-        return true;
     }
 
     @Step("Verify First Event Banner Title Changes Color On Hover")
-    public boolean verifyFirstEventBannerTitleChangesColorOnHover() {
+    public void verifyFirstEventBannerTitleChangesColorOnHover() {
         moveToElement(letsMeetSection);
         waitUntilVisible(firstEventBanner);
         String initialStyle = firstEventBanner.getCssValue("color");
@@ -130,7 +121,6 @@ public class HomePage extends BasePage {
         String hoveredStyle = firstEventBanner.getCssValue("color");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text color should change on hover");
-        return true;
     }
 
     @Step("Click on the first Event Banner")
@@ -141,7 +131,7 @@ public class HomePage extends BasePage {
     }
 
     @Step("Click on the second Event Banner")
-    public boolean verifySecondEventBannerTitleChangesColorOnHover() {
+    public void verifySecondEventBannerTitleChangesColorOnHover() {
         moveToElement(letsMeetSection);
         waitUntilVisible(secondEventBanner);
         String initialStyle = secondEventBanner.getCssValue("color");
@@ -150,7 +140,6 @@ public class HomePage extends BasePage {
         String hoveredStyle = secondEventBanner.getCssValue("color");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text color should change on hover");
-        return true;
     }
     @Step("Click on the second Event Banner")
     public ContactsPage clickSecondEventBanner() {
@@ -160,7 +149,7 @@ public class HomePage extends BasePage {
     }
 
     @Step("Verify Offers Link in Round Ellipses Section changes on hover")
-    public boolean verifyOffersLinkInRoundEllipsesSectionChangesOnHover(){
+    public void verifyOffersLinkInRoundEllipsesSectionChangesOnHover(){
         moveToElement(navigationInRoundEllipses);
         String initialStyle = offersInRoundEllipses.getCssValue("text-decoration");
         logger.info("Initial test-decoration: " +initialStyle);
@@ -168,7 +157,6 @@ public class HomePage extends BasePage {
         String hoveredStyle = offersInRoundEllipses.getCssValue("text-decoration");
         logger.info("Hoved test-decoration: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text-decoration should change on hover");
-        return true;
     }
 
     @Step("Click on the Offers Link in Round Ellipses Section")
@@ -179,7 +167,7 @@ public class HomePage extends BasePage {
     }
 
     @Step("Verify Promocode Link in Round Ellipses Section changes on hover")
-    public boolean verifyPromocodeLinkInRoundEllipsesSectionChangesOnHover(){
+    public void verifyPromocodeLinkInRoundEllipsesSectionChangesOnHover(){
         moveToElement(navigationInRoundEllipses);
         String initialStyle = promocodeInRoundEllipses.getCssValue("text-decoration");
         logger.info("Initial test-decoration: " +initialStyle);
@@ -187,7 +175,6 @@ public class HomePage extends BasePage {
         String hoveredStyle = promocodeInRoundEllipses.getCssValue("text-decoration");
         logger.info("Hoved test-decoration: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text-decoration should change on hover");
-        return true;
     }
 
     @Step("Click on the Promocode Link in Round Ellipses Section")
@@ -198,7 +185,7 @@ public class HomePage extends BasePage {
     }
 
     @Step("Verify Affiliate Programs Link in Round Ellipses Section changes on hover")
-    public boolean verifyAffiliateProgramsLinkInRoundEllipsesSectionChangesOnHover(){
+    public void verifyAffiliateProgramsLinkInRoundEllipsesSectionChangesOnHover(){
         moveToElement(navigationInRoundEllipses);
         String initialStyle = affiliateProgramsInRoundEllipses.getCssValue("text-decoration");
         logger.info("Initial test-decoration: " +initialStyle);
@@ -206,7 +193,6 @@ public class HomePage extends BasePage {
         String hoveredStyle = affiliateProgramsInRoundEllipses.getCssValue("text-decoration");
         logger.info("Hoved test-decoration: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text-decoration should change on hover");
-        return true;
     }
 
     @Step("Click on the Affiliate Programs Link in Round Ellipses Section")
@@ -215,6 +201,5 @@ public class HomePage extends BasePage {
         logger.info("Clicked on the Affiliate Programs Link in Round Ellipses Section");
         return new AffiliateProgramsPage(driver);
     }
-
 
 }
