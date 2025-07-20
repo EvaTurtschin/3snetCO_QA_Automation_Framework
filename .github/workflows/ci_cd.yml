@@ -1,12 +1,10 @@
-name: CI CD Build for all branch
+name: CI CD Build for ea/partner
 
 on:
   push:
     branches:
       - ea/partner
-      - evgeniyaT
-      - waiters_fix
-      - new-Java
+
 jobs:
   build:
 
