@@ -65,9 +65,13 @@ public class HomePage extends BasePage {
     private WebElement searchInputField;
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement searchSubmitButton;
+    @FindBy(xpath = "//div[contains(@class, 'grecaptcha-badge')]")
+    private WebElement captcha;
+
 
     @Step("Click Submit Button in Search Section")
     public SearchResultsPage clickSubmitButtonInSearchSection() {
+        waitUntilClickable(searchSubmitButton);
         clickWithJSScroll(searchSubmitButton);
         logger.info("Clicked on the Submit Button in Search Section");
         return new SearchResultsPage(driver);
@@ -75,6 +79,7 @@ public class HomePage extends BasePage {
 
     @Step("Click Input Field in Search Section")
     public void clickInputFieldInSearchSection() {
+        waitUntilVisible(searchInputField);
         clickWithJSScroll(searchInputField);
         logger.info("Clicked on the Input Field in Search Section");
     }
@@ -106,6 +111,7 @@ public class HomePage extends BasePage {
         logger.info("Initial color: " +initialStyle);
         waitUntilClickable(join3SNetButtonSection);
         moveToElement(join3SNetButton);
+        waitUntilCssValueChanges(join3SNetButton, "background", initialStyle);
         String hoveredStyle = join3SNetButton.getCssValue("background");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Background color should change on hover");
@@ -118,6 +124,7 @@ public class HomePage extends BasePage {
         String initialStyle = firstEventBanner.getCssValue("color");
         logger.info("Initial color: " +initialStyle);
         moveToElement(firstEventBanner);
+        waitUntilCssValueChanges(firstEventBanner, "color", initialStyle);
         String hoveredStyle = firstEventBanner.getCssValue("color");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text color should change on hover");
@@ -137,6 +144,7 @@ public class HomePage extends BasePage {
         String initialStyle = secondEventBanner.getCssValue("color");
         logger.info("Initial color: " +initialStyle);
         moveToElement(secondEventBanner);
+        waitUntilCssValueChanges(secondEventBanner, "color", initialStyle);
         String hoveredStyle = secondEventBanner.getCssValue("color");
         logger.info("Hoved color: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text color should change on hover");
@@ -154,6 +162,7 @@ public class HomePage extends BasePage {
         String initialStyle = offersInRoundEllipses.getCssValue("text-decoration");
         logger.info("Initial test-decoration: " +initialStyle);
         moveToElement(offersInRoundEllipses);
+        waitUntilCssValueChanges(offersInRoundEllipses, "text-decoration", initialStyle);
         String hoveredStyle = offersInRoundEllipses.getCssValue("text-decoration");
         logger.info("Hoved test-decoration: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text-decoration should change on hover");
@@ -172,6 +181,7 @@ public class HomePage extends BasePage {
         String initialStyle = promocodeInRoundEllipses.getCssValue("text-decoration");
         logger.info("Initial test-decoration: " +initialStyle);
         moveToElement(promocodeInRoundEllipses);
+        waitUntilCssValueChanges(promocodeInRoundEllipses, "text-decoration", initialStyle);
         String hoveredStyle = promocodeInRoundEllipses.getCssValue("text-decoration");
         logger.info("Hoved test-decoration: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text-decoration should change on hover");
@@ -190,6 +200,7 @@ public class HomePage extends BasePage {
         String initialStyle = affiliateProgramsInRoundEllipses.getCssValue("text-decoration");
         logger.info("Initial test-decoration: " +initialStyle);
         moveToElement(affiliateProgramsInRoundEllipses);
+        waitUntilCssValueChanges(affiliateProgramsInRoundEllipses, "text-decoration", initialStyle);
         String hoveredStyle = affiliateProgramsInRoundEllipses.getCssValue("text-decoration");
         logger.info("Hoved test-decoration: " + hoveredStyle);
         Assert.assertNotEquals(hoveredStyle, initialStyle, "Text-decoration should change on hover");
@@ -202,4 +213,12 @@ public class HomePage extends BasePage {
         return new AffiliateProgramsPage(driver);
     }
 
+    public void verifyCaptchaOpensOnHover() {
+        String captchaRightValue = captcha.getCssValue("right");
+        logger.info("Right Value before hover: " + captchaRightValue);
+        moveToElement(captcha);
+        String captchaOpened = captcha.getCssValue("right");
+        logger.info("Right Value after hover: " + captchaOpened);
+        Assert.assertNotEquals(captchaRightValue, captchaOpened);
+    }
 }

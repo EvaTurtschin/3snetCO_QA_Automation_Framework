@@ -121,6 +121,12 @@ public class HomePageOtherSectionsTest extends BaseTest{
         homePage.pressEnterKeyWhileFocusedOnInputFieldInSearchSection().verifySearchResultsIsCorrect();
     }
 
-
+    @Test(description = "Captcha is visible and opens on hover on the Home Page")
+    @Story("Captcha Behavior")
+    @Description("Verify that Captcha is visible and opens on hover on the Home Page")
+    public void captchaIsVisibleAndOpensOnHoverOnHomePage() {
+        HomePage homePage = new HomePage(driver);
+        homePage.verifyCaptchaOpensOnHover();
+    }
 
 }

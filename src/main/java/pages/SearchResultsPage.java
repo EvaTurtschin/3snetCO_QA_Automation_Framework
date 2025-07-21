@@ -15,6 +15,7 @@ public class SearchResultsPage extends BasePage{
     private WebElement searchResultsTitle;
 
     public boolean verifySearchResultsPageIsOpen() {
+        waitUntilUrlToBe("https://3snet.co/?s=");
         String url = new SearchResultsPage(driver).getCurrentUrl();
         Assert.assertEquals(url, "https://3snet.co/?s=");
         return true;

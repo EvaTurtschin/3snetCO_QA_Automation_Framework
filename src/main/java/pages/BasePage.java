@@ -73,6 +73,10 @@ public abstract class BasePage {
     }
     public void waitUntilUrlToBe(String expectedUrl) { wait.until(ExpectedConditions.urlToBe(expectedUrl)); }
 
+    public void waitUntilCssValueChanges(WebElement element, String cssProperty, String oldValue) {
+        getWait5().until(driver -> !element.getCssValue(cssProperty).equals(oldValue));
+    }
+
     public String getTextBase(WebElement element) {
         return element.getText().trim();
     }
