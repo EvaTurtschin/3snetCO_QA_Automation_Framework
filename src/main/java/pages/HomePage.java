@@ -10,7 +10,7 @@ import org.testng.Assert;
 public class HomePage extends BasePage {
 
     private HomePageHeader header;
-    private HomePageAdvetisers advetisers;
+    private HomePageAdvertisers advetisers;
     private HomePageVerticals verticals;
     private HomePageTopOffers topOffers;
     private HomePageQuickLinks quickLinks;
@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
         this.header = new HomePageHeader(driver);
-        this.advetisers = new HomePageAdvetisers(driver);
+        this.advetisers = new HomePageAdvertisers(driver);
         this.verticals = new HomePageVerticals(driver);
         this.topOffers = new HomePageTopOffers(driver);
         this.quickLinks = new HomePageQuickLinks(driver);
@@ -29,7 +29,7 @@ public class HomePage extends BasePage {
     public HomePageHeader header() {
         return header;
     }
-    public HomePageAdvetisers advetisers() {
+    public HomePageAdvertisers advetisers() {
         return advetisers;
     }
     public HomePageVerticals verticals() {

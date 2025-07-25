@@ -6,6 +6,7 @@
             <class name="tests.HomePageHeaderTest"/>
             <class name="tests.HomePageVerticalsTest"/>
             <class name="tests.HomePageOtherSectionsTest"/>
+            <class name="tests.HomePageAdvertisersTest"/>
         </classes>
     </test>
 </suite>

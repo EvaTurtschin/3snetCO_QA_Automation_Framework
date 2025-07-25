@@ -60,6 +60,7 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitUntilInvisible(WebElement element) { wait.until(ExpectedConditions.invisibilityOf(element));  }
     public void waitUntilClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }

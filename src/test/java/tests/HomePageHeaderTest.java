@@ -64,7 +64,7 @@ public class HomePageHeaderTest extends BaseTest {
 
        homePage.header().clickAdvertisersInHeader();
 
-       homePage.waitUntilUrlToBe(homePage.advetisers().getAdvetisersAnchorUrl());
+       homePage.waitUntilUrlToBe(homePage.advetisers().getAdvertisersAnchorUrl());
 
        String urlAfter = driver.getCurrentUrl();
        Assert.assertTrue(homePage.advetisers().verifyAdvertiserSectionIsVisible(),
