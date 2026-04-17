@@ -85,9 +85,6 @@ Each contributor works in a dedicated branch and covers specific parts of the sy
 
 - **Evgeniya Turchina** – Project owner, framework architecture and core development  
 - **Eldar Abdulhakov** – UI test scenarios, branch: `ea/partner`  
-- **Irina Bessner** – UI test scenarios, branch: 
-- **Anton Sladkomedov** – UI test scenarios, branch: `waiters_fix` 
-
 ---
 
 ## 🔄 Future Plans
