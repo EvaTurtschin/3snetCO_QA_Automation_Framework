@@ -15,9 +15,6 @@ public class AffiliateProgramsPage extends BasePage {
     @FindBy(tagName = "h1")
     private WebElement title;
 
-    @FindBy(xpath = "//h1[@class='section-title level-1']")
-    private WebElement affiliatePageTitleContain;
-
     @FindBy(name = "affiliate_search")
     private WebElement placeholderSearchText;
 
