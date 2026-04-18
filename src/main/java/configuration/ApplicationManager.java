@@ -7,13 +7,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.events.EventFiringDecorator;
-import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.openqa.selenium.Dimension;
 
-public class ApplicationManager {
-    private WebDriver driver;
-    String browser;
 
+public class ApplicationManager {
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    String browser;
+    private static final Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
     public ApplicationManager(String browser) {
         this.browser = browser;
     }
@@ -22,7 +24,7 @@ public class ApplicationManager {
     if (browser.equals("edge")) {
         EdgeOptions edgeOptions = new EdgeOptions();
         WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver(edgeOptions);
+        driver.set(new EdgeDriver(edgeOptions));
     } else if (browser.equals("chrome")) {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--lang=en");
@@ -41,29 +43,30 @@ public class ApplicationManager {
         }
 
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(chromeOptions);
+        driver.set(new ChromeDriver(chromeOptions));
 
         if (isCI) {
-            driver.manage().window().setSize(new Dimension(1920, 1080));
+            driver.get().manage().window().setSize(new Dimension(1920, 1080));
         } else {
-            driver.manage().window().maximize();
+            driver.get().manage().window().maximize();
         }
     } else {
         throw new IllegalArgumentException("Unsupported browser: " + browser);
     }
 
-    System.out.println("Window size: " + driver.manage().window().getSize());
+    logger.info("Window size: {}", driver.get().manage().window().getSize());
 
-    // driver = new EventFiringDecorator(new WDListener()).decorate(driver);
-    driver.navigate().to("https://3snet.co/");
-    return driver;
+    driver.set(new EventFiringDecorator(new WDListener()).decorate(driver.get()));
+    driver.get().navigate().to("https://3snet.co/");
+    return driver.get();
 }
     public void quit() {
-        driver.quit();
+        driver.get().quit();
+        driver.remove();
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    public static WebDriver getDriver() {
+        return driver.get();
     }
 
 }
